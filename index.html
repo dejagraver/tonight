@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-     initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <title>Tonight</title>
 </head>
-<body>
-    TONIGHT
-</body>
+
+<body class="flex-column min-100-vh">
+    <header class="">
+        <h1 class="">Tonight</h1>
+    </header>
+
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-2">
+            <button class="btn">Movies</button>
+            <button class="btn">Events</button>
+            <button class="btn">Restaurant</button>
+            <button class="btn">My List's</button>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+            <button class="btn">Save to My List's</button>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <button class="btn">Add to List</button>
+        </div>
+
+        <!-- container html that will hold the events queried by the user -->
+        <div class="container">
+            <div class="columns"> 
+                <div id="event-list-group" class="col-12 bg-secondary"> 
+                    <h1>Events Search Box</h1>
+                    <!-- search results go here and form a list -->
+                </div>
+            </div>
+        </div>
+        
+    </main>
+  </body>
 </html>
