@@ -1,9 +1,8 @@
 # Tonight
 
 ## Description
-Determine the weather anywhere in the world!
-View the current and future forecast of any city using real-time data.
-Come back later and find a city with ease using search history functionality!
+Are you bored and have nothing to do tonight?
+Find customized solutions today with Tonight!
 
 ## Technologies 
 * HTML
