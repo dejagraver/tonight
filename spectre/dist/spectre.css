@@ -1615,6 +1615,10 @@ video.video-responsive::before {
 .column.col-auto {
   -ms-flex: none;
   flex: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: .4rem;
+    padding-right: .4rem;
 }
 
 .col-12 {
@@ -1634,7 +1638,12 @@ video.video-responsive::before {
 }
 
 .col-8 {
-  width: 66.66666667%;
+  width: 80%;
+  h
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: .4rem;
+    padding-right: .4rem;
 }
 
 .col-7 {
@@ -1664,6 +1673,7 @@ video.video-responsive::before {
 .col-1 {
   width: 8.33333333%;
 }
+
 
 .col-auto {
   -ms-flex: 0 0 auto;
