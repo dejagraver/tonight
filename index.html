@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/style.css" />
-=======
     <link rel="stylesheet" href="./assets/css/style.css"/>
->>>>>>> e7425d99fb06182dfa95d385031774427d13c318
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
@@ -36,7 +32,7 @@
         </div>
         <div class="column col-4 col-xs-12">
             <div class="card text-center">
-                <button class="btn">Events</button>
+                <button id="events" class="btn">Events</button>
             </div>
         </div>
         <div class="column col-4 col-xs-12">
@@ -72,7 +68,23 @@
                 </div>
             </div>
         </div>
-        
-    </main>
+
+        <div class="container">
+            <div class="columns"> 
+                <div id="recipe" class="col-12"> 
+                    <h1>Random Recipes</h1>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="./assets/js/events.js"></script>
+    <script src="./assets/js/recipes.js"></script>
+    <script>
+        $("#events").on("click",function(event){
+            fetchEventData();
+        });
+    </script>
   </body>
+
 </html>
