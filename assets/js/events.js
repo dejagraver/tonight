@@ -51,6 +51,9 @@ function displayEvents(eventData){
         $("<div>").addClass("card-subtitle text-gray").text(date).appendTo(bodyBoxEl);
         $("<p>").text(time).appendTo(bodyBoxEl);
         $("<a>").text("Web URL").attr({href: url, target: "_blank"}).appendTo(bodyBoxEl); 
+
+        $("<label>").addClass("form-checkbox").html("<input type='checkbox'><i class='form-icon'></i> Add Event").appendTo(bodyBoxEl);
+        
     
         eventBoxEl.appendTo(eventListGroupEl);
     }
