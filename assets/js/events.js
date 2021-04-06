@@ -50,6 +50,7 @@ function displayEvents(eventData){
         $("<div>").addClass("card-title h5").text(name).appendTo(bodyBoxEl);
         $("<div>").addClass("card-subtitle text-gray").text(date).appendTo(bodyBoxEl);
         $("<p>").text(time).appendTo(bodyBoxEl);
+        $("<a>").text("Web URL").attr({href: url, target: "_blank"}).appendTo(bodyBoxEl); 
     
         eventBoxEl.appendTo(eventListGroupEl);
     }
