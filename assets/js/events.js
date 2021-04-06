@@ -1,12 +1,28 @@
 //Consumer Key: 9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn
 //Consumer Sectret: xISar1JtBhcLCcBk
-//Toronto: 527
 
 var eventListGroupEl = $("#event-list-group");
+var userLat = 43.6532260;
+var userLon = -79.3831843;
+
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(geolocationSuccess);
+    }
+}
+
+function geolocationSuccess(position){
+    userLat = position.coords.latitude;
+    userLon = position.coords.longitude;
+
+    console.log(userLat, userLon);
+}
 
 //Fetch Ticketmaster data using the API
 function fetchEventData(){
-    var apiUrl = "https://app.ticketmaster.com/discovery/v2/events.json?dmaId=527&apikey=9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn";
+    
+    //searches ticketmaster for events at the user's location within a 200km radius
+    var apiUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn&radius=200&unit=km&locale=*&sort=date,asc&geoPoint="+userLat+","+userLon;
 
     fetch(apiUrl)
     .then(function(response){
@@ -74,4 +90,4 @@ function get4by3Image(imageArray){
     return "http://placehold.it/150";
 }
 
-
+getLocation();
