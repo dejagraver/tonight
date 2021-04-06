@@ -71,4 +71,4 @@ function get4by3Image(imageArray){
     return "http://placehold.it/150";
 }
 
-fetchEventData();
+
