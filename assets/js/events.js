@@ -10,8 +10,15 @@ var userLon = -79.3831843;
 
 //Request the user's geographic location
 function getLocation(){
+
+    //Check if geolocation is available to the browser
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(geolocationSuccess);
+        navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure);
+    }
+    else{
+        //******************************************************************
+        //Replace this with a modal
+        alert("Geolocation is not supported by this browser.");
     }
 }
 
@@ -23,6 +30,32 @@ function geolocationSuccess(position){
     userLon = position.coords.longitude;
 
     console.log(userLat, userLon);
+}
+
+//Called if the user location request was denied
+function geolocationFailure(error){
+
+    var errorMEssage; 
+
+    //Return an error message depending on the reason for location failure
+    switch(error.code){
+        case error.PERMISSION_DENIED:
+            errorMEssage = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            errorMEssage = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            errorMEssage = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            errorMEssage = "An unknown error occurred."
+            break;
+    }
+
+    //******************************************************************
+    //Replace this with a modal
+    alert(errorMEssage);
 }
 
 //Fetch Ticketmaster data using the API
