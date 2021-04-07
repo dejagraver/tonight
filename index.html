@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
     <meta name="viewport" content="width=initial-scale=1.0">
 
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> eec4327531ea1f322b05c738d9b1532302bd5754
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
@@ -33,12 +37,12 @@
         </div>
         <div class="column col-4 col-xs-12">
             <div class="card text-center">
-                <button class="btn">Events</button>
+                <button id="events" class="btn">Events</button>
             </div>
         </div>
         <div class="column col-4 col-xs-12">
             <div class="card text-center">
-                <button class="btn">Restaurant</button>
+                <button id="recipe" class="btn">Recipes</button>
             </div>
         </div>
         <div class="column col-12 col-xs-12">
@@ -53,8 +57,33 @@
                 <button class="btn col-12">Add to List</button>
             </div>
         </div>
-      
-        
-    </main>
+
+        <div class="column col-12 col-xs-12">
+            <h2 class="card text-center">
+                Tonight's Activities List
+            </h2>
+            <div class="card-tonight"></div>
+        </div>
+
+        <!-- container html that will hold the events queried by the user -->
+        <div class="container">
+            <div class="columns"> 
+                <div id="event-list-group" class="col-12 bg-secondary"> 
+                    <!-- search results go here and form a list -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="columns">
+                <div id="recipe-list" class="col-12 bg-secondary">
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <script src="./assets/js/events.js"></script>
+    <script src="./assets/js/recipes.js"></script>
   </body>
+
 </html>
