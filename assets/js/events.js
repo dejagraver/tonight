@@ -4,9 +4,11 @@
 //Initialize a variable for the main event search list
 var eventListGroupEl = $("#event-list-group");
 
+
 //Initialize and provide a default value for the user's latitude and logitude in case we cannot take their location
 var userLat = 43.6532260;
 var userLon = -79.3831843;
+
 
 //Request the user's geographic location
 function getLocation(){
@@ -22,6 +24,7 @@ function getLocation(){
     }
 }
 
+
 //Called if we were given access to the user location
 function geolocationSuccess(position){
 
@@ -31,6 +34,7 @@ function geolocationSuccess(position){
 
     console.log(userLat, userLon);
 }
+
 
 //Called if the user location request was denied
 function geolocationFailure(error){
@@ -57,6 +61,7 @@ function geolocationFailure(error){
     //Replace this with a modal
     alert(errorMEssage);
 }
+
 
 //Fetch Ticketmaster data using the API
 function fetchEventData(){
@@ -85,6 +90,9 @@ function fetchEventData(){
 //Display events derived from event data
 function displayEvents(eventData){
     
+    //Clear the current search box
+    eventListGroupEl.html("");
+
     //Run through each of the events provided in the event array
     for(var i = 0; i < eventData._embedded.events.length; i++){
 
@@ -119,6 +127,7 @@ function displayEvents(eventData){
     }
 }
 
+
 //Return a 4 by 3 image from an image array
 function get4by3Image(imageArray){
 
@@ -133,6 +142,15 @@ function get4by3Image(imageArray){
     //If none are found return a placeholder
     return "http://placehold.it/150";
 }
+
+
+//Click event for the 'events' button
+$("#events").on("click",function(event){
+    fetchEventData();
+});
+
+
+/***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
 getLocation();
