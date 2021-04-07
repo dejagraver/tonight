@@ -16,6 +16,7 @@ function getRecipeData() {
       .then(function (data) {
         console.log(data);
         arr.push(data.meals[0]); //push data into array
+        displayRecipe(data); //display the recipe 20 times
       })
       .catch((error) => {
         console.error("FETCH ERROR:", error);
@@ -27,7 +28,7 @@ function getRecipeData() {
 //display random recipes in an array
 function displayRecipe(data) {
   var Recipe = data.meals[0];
-  var RecipeDiv = document.getElementById("recipe");
+  var RecipeDiv = document.getElementById("recipe-list");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.src = Recipe.strMealThumb;
@@ -55,12 +56,10 @@ function displayRecipe(data) {
     RecipeIngredients.appendChild(listItem);
   }
 
-  //   recipeEl.appendTo(recipeListEl);
-  //   data.appendTo(recipeListEl);
   //   getRecipeData().appendChild(recipeListEl);
   //   document.getElementById("recipe-list").innerHTML = getRecipeData();
 }
 
-$("#recipe").on("click", function (recipe) {
+$("#recipe").on("click", function () {
   getRecipeData();
 });
