@@ -121,3 +121,13 @@
     -ms-flex-direction: column;
     flex-direction: column;
 }
+
+.bg-secondary {
+  background: #f1f1fc!important;
+  color: inherit;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 20px;
+}
