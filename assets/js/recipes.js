@@ -33,7 +33,6 @@ function displayRecipe(data) {
   var RecipeImg = document.createElement("img");
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
-  // document.body.style.backgroundImage = "url('" + Recipe.strMealThumb + "')";
 
   var RecipeIngredients = document.createElement("ul");
   RecipeDiv.appendChild(RecipeIngredients);
