@@ -26,6 +26,7 @@ function getRecipeData() {
 }
 
 //display random recipes in an array
+
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("recipe-list");
@@ -55,9 +56,6 @@ function displayRecipe(data) {
     listItem.innerHTML = value;
     RecipeIngredients.appendChild(listItem);
   }
-
-  //   getRecipeData().appendChild(recipeListEl);
-  //   document.getElementById("recipe-list").innerHTML = getRecipeData();
 }
 
 $("#recipe").on("click", function () {
