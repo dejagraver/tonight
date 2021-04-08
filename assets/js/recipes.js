@@ -23,6 +23,7 @@ function getRecipeData() {
       });
   } //once loop is done
   console.log(arr);
+  recipeListEl.innerHTML = "";
 }
 
 //display random recipes in an array
@@ -37,6 +38,10 @@ function displayRecipe(data) {
 
   var RecipeIngredients = document.createElement("ul");
   RecipeDiv.appendChild(RecipeIngredients);
+  $("<label>")
+    .addClass("form-checkbox")
+    .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
+    .appendTo(recipeListEl);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
