@@ -187,11 +187,12 @@ function toggleEventSave(event){
 
     //If the box is checked, then save the event otherwise remove event from saved list
     if(event.target.checked){
+        //push our event data at the event index to the saved list to save
         savedList.events.push(savedEvents[eventIndex]);
         console.log(savedList);
     }
     else{
-        console.log("unchecked");
+        //scan through the saved event list and remove the event with a matching ID to the event that was checked
         for(var i = 0; i < savedList.events.length; i++){
             if(savedEvents[eventIndex].id === savedList.events[i].id){
                 savedList.events.splice(i, 1);
