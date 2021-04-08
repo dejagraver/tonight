@@ -112,6 +112,26 @@
 }
 
 .card {
+<<<<<<< HEAD
+    background: #fff;
+    border: 1rem solid #dadee4;
+    border-radius: .1rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.bg-secondary {
+  background: #f1f1fc!important;
+  color: inherit;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 20px;
+}
+=======
   background: #fff;
   border: 1rem solid #dadee4;
   border-radius: 0.1rem;
@@ -120,3 +140,4 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+>>>>>>> eec4327531ea1f322b05c738d9b1532302bd5754
