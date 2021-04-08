@@ -1,6 +1,13 @@
 //Consumer Key: 9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn
 //Consumer Sectret: xISar1JtBhcLCcBk
 
+//Initialize a global storage array for saving to local storage
+var savedList = {
+    movies: [],
+    events: [],
+    recipes: []
+}
+
 //Initialize a variable for the main event search list
 var eventListGroupEl = $("#event-list-group");
 
@@ -89,6 +96,7 @@ function fetchEventData(){
     });
 }
 
+
 //Display events derived from event data
 function displayEventsList(eventData){
     
@@ -104,18 +112,13 @@ function displayEventsList(eventData){
     }
 }
 
+
 //Renders a single event
 function displaySingleEvent(event){
 
         //Collect all the variable from an individual event that we will be utilizing
-        var eventData = {
-            name: event.name,
-            date: event.dates.start.localDate,
-            time: event.dates.start.localTime,
-            url: event.url
-        }
-
-        //saveEvent(eventData);
+        var eventData = createEventObject(event);
+        saveEvent(eventData);
 
         //Find a 4 by 3 image to keep a consistent layout
         var imgSource = get4by3Image(event.images);
@@ -140,6 +143,21 @@ function displaySingleEvent(event){
         eventBoxEl.appendTo(eventListGroupEl);
 }
 
+
+//return an object with event data for DOM manipulation and saving
+function createEventObject(event){
+    var eventData = {
+        name: event.name,
+        date: event.dates.start.localDate,
+        time: event.dates.start.localTime,
+        url: event.url,
+        id: event.id
+    }
+
+    return eventData;
+}
+
+
 //Return a 4 by 3 image from an image array
 function get4by3Image(imageArray){
 
@@ -155,27 +173,40 @@ function get4by3Image(imageArray){
     return "http://placehold.it/150";
 }
 
+
 //Provide an event to save into the user's saved list
 function saveEvent(eventData){
     savedEvents.push(eventData);
-    console.log(savedEvents);
 }
+
+//Called when an event checkbox is changed (clicked to on or off)
+function toggleEventSave(event){
+
+    //Initialize the index of the event that was clicked
+    var eventIndex = $(this).closest("#event-container").index();
+
+    //If the box is checked, then save the event otherwise remove event from saved list
+    if(event.target.checked){
+        savedList.events.push(savedEvents[eventIndex]);
+        console.log(savedList);
+    }
+    else{
+        console.log("unchecked");
+        for(var i = 0; i < savedList.events.length; i++){
+            if(savedEvents[eventIndex].id === savedList.events[i].id){
+                savedList.events.splice(i, 1);
+            }
+        }
+        console.log(savedList);
+    }
+}
+
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
 
-//Change event for the checkboxes
-$(eventListGroupEl).on("change", "input", function(event){
-
-    //If the box is checked, then save the event otherwise remove event from saved list
-    if(event.target.checked){
-        console.log("checked");
-        console.log($(this).closest("#event-container").find(".card-title").text());
-    }
-    else{
-        console.log("unchecked");
-    }
-});
+//Change save status when clicking the checkboxes
+$(eventListGroupEl).on("change", "input", toggleEventSave);
 
 /***** Program Start *****/
 
