@@ -1,5 +1,5 @@
 //Consumer Key: 9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn
-//Consumer Sectret: xISar1JtBhcLCcBk
+//Consumer Secret: xISar1JtBhcLCcBk
 
 //Initialize a global storage array for saving to local storage
 var savedList = {
@@ -20,34 +20,30 @@ var userLon = -79.3831843;
 
 
 //Request the user's geographic location
-function getLocation(){
-
+function getLocation()
+{
     //Check if geolocation is available to the browser
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure);
     }
     else{
-        //******************************************************************
-        //Replace this with a modal
-        alert("Geolocation is not supported by this browser.");
+        openModal("Geolocation is not supported by this browser.", "Error");
     }
 }
 
 
 //Called if we were given access to the user location
-function geolocationSuccess(position){
-
+function geolocationSuccess(position)
+{
     //store the user location data in global variable for use in the API call
     userLat = position.coords.latitude;
     userLon = position.coords.longitude;
-
-    console.log(userLat, userLon);
 }
 
 
 //Called if the user location request was denied
-function geolocationFailure(error){
-
+function geolocationFailure(error)
+{
     var errorMEssage; 
 
     //Return an error message depending on the reason for location failure
@@ -66,15 +62,13 @@ function geolocationFailure(error){
             break;
     }
 
-    //******************************************************************
-    //Replace this with a modal
-    alert(errorMEssage);
+    openModal(errorMEssage, "Error");
 }
 
 
 //Fetch Ticketmaster data using the API
-function fetchEventData(){
-    
+function fetchEventData()
+{    
     //searches ticketmaster for events at the user's location within a 200km radius
     var apiUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn&radius=200&unit=km&locale=*&sort=date,asc&geoPoint="+userLat+","+userLon;
 
@@ -83,7 +77,6 @@ function fetchEventData(){
         if(response.ok){
             response.json().then(function(data){
                 //Log the event data for troubleshooting and render event items to the screen
-                console.log(data);
                 displayEventsList(data);
             })
         }
@@ -98,8 +91,8 @@ function fetchEventData(){
 
 
 //Display events derived from event data
-function displayEventsList(eventData){
-    
+function displayEventsList(eventData)
+{
     //Clear the current search box
     eventListGroupEl.html("");
 
@@ -114,8 +107,8 @@ function displayEventsList(eventData){
 
 
 //Renders a single event
-function displaySingleEvent(event){
-
+function displaySingleEvent(event)
+{
         //Collect all the variable from an individual event that we will be utilizing
         var eventData = createEventObject(event);
         saveEvent(eventData);
@@ -145,7 +138,8 @@ function displaySingleEvent(event){
 
 
 //return an object with event data for DOM manipulation and saving
-function createEventObject(event){
+function createEventObject(event)
+{
     var eventData = {
         name: event.name,
         date: event.dates.start.localDate,
@@ -159,8 +153,8 @@ function createEventObject(event){
 
 
 //Return a 4 by 3 image from an image array
-function get4by3Image(imageArray){
-
+function get4by3Image(imageArray)
+{
     //runs through and array of images 
     for(var i = 0; i < imageArray.length; i++){
         //return the first image url we find that has a 4 by 3 ratio
@@ -175,13 +169,14 @@ function get4by3Image(imageArray){
 
 
 //Provide an event to save into the user's saved list
-function saveEvent(eventData){
+function saveEvent(eventData)
+{
     savedEvents.push(eventData);
 }
 
 //Called when an event checkbox is changed (clicked to on or off)
-function toggleEventSave(event){
-
+function toggleEventSave(event)
+{
     //Initialize the index of the event that was clicked
     var eventIndex = $(this).closest("#event-container").index();
 
@@ -202,11 +197,38 @@ function toggleEventSave(event){
     }
 }
 
+
+//Presents an erro modal to the user with a specified message
+function openModal(message, modalTitle)
+{
+  $(".modal-title").text(modalTitle);
+  //create a p element with a message and add it to the modal content
+  $("<p>").text(message).appendTo("#modal-id .content");
+
+  //show the modal
+  $("#modal-id").addClass("active");
+}
+
+
+//Close the active modal by removing 'active class'
+function closeModal(event)
+{
+  //hide the modal
+  $("#modal-id").removeClass("active");
+}
+
+
+/***** Event Listeners *****/
+
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
 
 //Change save status when clicking the checkboxes
 $(eventListGroupEl).on("change", "input", toggleEventSave);
+
+//Closes the modal when clicked
+$("#modal-close").on("click", closeModal);
+
 
 /***** Program Start *****/
 
