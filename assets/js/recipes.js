@@ -33,6 +33,8 @@ function displayRecipe(data) {
   var RecipeDiv = document.getElementById("recipe-list");
 
   var RecipeImg = document.createElement("img");
+  RecipeImg.id = "::img";
+  RecipeImg.style.cssText = "width:300px;height:300px;";
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
 
