@@ -23,21 +23,28 @@ function getRecipeData() {
       });
   } //once loop is done
   console.log(arr);
+  recipeListEl.innerHTML = "";
 }
 
 
 //display random recipes in an array
+
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("recipe-list"); ``
 
   var RecipeImg = document.createElement("img");
+  RecipeImg.id = "::img";
+  RecipeImg.style.cssText = "width:300px;height:300px;";
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
-  // document.body.style.backgroundImage = "url('" + Recipe.strMealThumb + "')";
 
   var RecipeIngredients = document.createElement("ul");
   RecipeDiv.appendChild(RecipeIngredients);
+  $("<label>")
+    .addClass("form-checkbox")
+    .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
+    .appendTo(recipeListEl);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
@@ -56,9 +63,6 @@ function displayRecipe(data) {
     listItem.innerHTML = value;
     RecipeIngredients.appendChild(listItem);
   }
-
-  //   getRecipeData().appendChild(recipeListEl);
-  //   document.getElementById("recipe-list").innerHTML = getRecipeData();
 }
 
 $("#recipe").on("click", function () {
