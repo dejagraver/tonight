@@ -2352,9 +2352,6 @@ summary.accordion-header::-webkit-details-marker {
 }
 
 .card {
-  background: #fff;
-  border: .05rem solid #dadee4;
-  border-radius: .1rem;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;

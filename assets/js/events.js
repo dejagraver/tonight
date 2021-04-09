@@ -102,7 +102,7 @@ function displayEvents(eventData) {
     var imgSource = get4by3Image(event.images);
 
     //Initialize containers to hold the important event information
-    var eventBoxEl = $("<div>").addClass("container border-black bg-gray");
+    var eventBoxEl = $("<div>").addClass("container bg-gray");
     var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
     var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
     var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);

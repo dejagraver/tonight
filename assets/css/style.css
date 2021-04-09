@@ -1,37 +1,3 @@
-/* main html css */
-[class~="col-"].col-12,
-[class~="col-"].col-11,
-[class~="col-"].col-10,
-[class~="col-"].col-9,
-[class~="col-"].col-8,
-[class~="col-"].col-7,
-[class~="col-"].col-6,
-[class~="col-"].col-5,
-[class~="col-"].col-4,
-[class~="col-"].col-3,
-[class~="col-"].col-2,
-[class~="col-"].col-1,
-[class~="col-"].col-auto,
-.column.col-12,
-.column.col-11,
-.column.col-10,
-.column.col-9,
-.column.col-8,
-.column.col-7,
-.column.col-6,
-.column.col-5,
-.column.col-4,
-.column.col-3,
-.column.col-2,
-.column.col-1,
-.column.col-auto {
-  -ms-flex: none;
-  flex: none;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: .4rem;
-    padding-right: .4rem;
-}
 
 
 .col-8 {
@@ -114,19 +80,67 @@
 }
 
 .card {
-    background: #fff;
-    border: 1rem solid #dadee4;
-    border-radius: .1rem;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-/* event custom styles */
-.border-black{
-    border-top: 2px black solid;
+    background: inherit;
+    border: none;
 }
 
 
+img {
+  border-radius: .9rem;
+  padding: 20px;
+}
 
+.column.col-12 {
+  padding: 30px;
+}
+
+h2.card.text-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.container {
+  padding-left: 2rem;
+padding-right: 2rem;
+width: 100%;
+}
+
+.col-10 {
+  padding: 30px;
+}
+
+.col-10:hover {
+  padding: 30px;
+}
+
+.form-icon:hover {
+  background: #5755d9;
+}
+
+/* .img-responsive {
+  transition: all .2s ease-in-out;
+}
+
+.img-responsive:hover {
+  transform: scale(1.1);
+} */
+
+div.container:hover {
+  transform: scale(1.1);
+}
+
+div.container {
+  transition: all .2s ease-in-out;
+  background-color: ivory;
+}
+
+.docs-brand {
+
+}
+
+img {
+  height: 350px;
+  width: 350px;;
+}
