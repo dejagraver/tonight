@@ -205,11 +205,16 @@ function toggleEventSave(event){
 //Ok.....
 console.log("This is a test")
 function justAFunction(){
+<<<<<<< HEAD
     var add1s = 1 + 1;
     console.log(add1s);
 }
 
 
+=======
+    console.log("arrrrrrrggggghhhh");
+}
+>>>>>>> mergeTest
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
