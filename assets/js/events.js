@@ -1,8 +1,18 @@
 //Consumer Key: 9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn
 //Consumer Sectret: xISar1JtBhcLCcBk
 
+//Initialize a global storage array for saving to local storage
+var savedList = {
+    movies: [],
+    events: [],
+    recipes: []
+}
+
 //Initialize a variable for the main event search list
 var eventListGroupEl = $("#event-list-group");
+
+//Initialize an event container for saving/loading
+var savedEvents = [];
 
 //Initialize and provide a default value for the user's latitude and logitude in case we cannot take their location
 var userLat = 43.653226;
@@ -58,80 +68,88 @@ function geolocationFailure(error) {
 }
 
 //Fetch Ticketmaster data using the API
-function fetchEventData() {
-  //searches ticketmaster for events at the user's location within a 200km radius
-  var apiUrl =
-    "https://app.ticketmaster.com/discovery/v2/events?apikey=9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn&radius=200&unit=km&locale=*&sort=date,asc&geoPoint=" +
-    userLat +
-    "," +
-    userLon;
+function fetchEventData(){
+    
+    //searches ticketmaster for events at the user's location within a 200km radius
+    var apiUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=9MbzzCg3cSnWRYXGAvroFdbBihxg6rgn&radius=200&unit=km&locale=*&sort=date,asc&geoPoint="+userLat+","+userLon;
 
-  //Fetch the data from the api server and display the events if it is valid
-  fetch(apiUrl)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          //Log the event data for troubleshooting and render event items to the screen
-          console.log(data);
-          displayEvents(data);
-        });
-      } else {
-        console.log("Error: " + response.statusText);
-      }
+    //Fetch the data from the api server and display the events if it is valid
+    fetch(apiUrl).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                //Log the event data for troubleshooting and render event items to the screen
+                console.log(data);
+                displayEventsList(data);
+            })
+        }
+        else{
+            console.log("Error: " + response.statusText);
+        }
     })
     .catch(function (error) {
       console.log("Error: cannot connect to server");
     });
 }
 
+
 //Display events derived from event data
-function displayEvents(eventData) {
-  //Clear the current search box
-  eventListGroupEl.html("");
+function displayEventsList(eventData){
+    
+    //Clear the current search box
+    eventListGroupEl.html("");
 
-  //Run through each of the events provided in the event array
-  for (var i = 0; i < eventData._embedded.events.length; i++) {
-    //Collect all the variable from an individual event that we will be utilizing
-    var event = eventData._embedded.events[i];
-    var name = event.name;
-    var date = event.dates.start.localDate;
-    var time = event.dates.start.localTime;
-    var url = event.url;
+    //Run through each of the events provided in the event array
+    for(var i = 0; i < eventData._embedded.events.length; i++){
 
-    //Find a 4 by 3 image to keep a consistent layout
-    var imgSource = get4by3Image(event.images);
+        //Collect all the variable from an individual event that we will be utilizing
+        var event = eventData._embedded.events[i];
+        displaySingleEvent(event);
+    }
+}
 
-    //Initialize containers to hold the important event information
-    var eventBoxEl = $("<div>").addClass("container border-black bg-gray");
-    var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
-    var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
-    var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
 
-    //Create elements that have the event data fed into them
-    $("<img>")
-      .attr("src", imgSource)
-      .addClass("img-responsive")
-      .appendTo(imageBoxEl);
+//Renders a single event
+function displaySingleEvent(event){
 
-    $("<div>").addClass("card-title h5").text(name).appendTo(bodyBoxEl);
-    $("<div>")
-      .addClass("card-subtitle text-gray")
-      .text(date)
-      .appendTo(bodyBoxEl);
-    $("<p>").text(time).appendTo(bodyBoxEl);
-    $("<a>")
-      .text("Web URL")
-      .attr({ href: url, target: "_blank" })
-      .appendTo(bodyBoxEl);
+        //Collect all the variable from an individual event that we will be utilizing
+        var eventData = createEventObject(event);
+        saveEvent(eventData);
 
-    $("<label>")
-      .addClass("form-checkbox")
-      .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
-      .appendTo(bodyBoxEl);
+        //Find a 4 by 3 image to keep a consistent layout
+        var imgSource = get4by3Image(event.images);
+        
+        //Initialize containers to hold the important event information
+        var eventBoxEl = $("<div>").addClass("container border-black bg-gray").attr("id", "event-container");
+        var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+        var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
+        var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
+    
+        //Create elements that have the event data fed into them
+        $("<img>").attr("src",imgSource).addClass("img-responsive").appendTo(imageBoxEl);
+    
+        $("<div>").addClass("card-title h5").text(eventData["name"]).appendTo(bodyBoxEl);
+        $("<div>").addClass("card-subtitle text-gray").text(eventData["date"]).appendTo(bodyBoxEl);
+        $("<p>").text(eventData["time"]).appendTo(bodyBoxEl);
+        $("<a>").text("Web URL").attr({href: eventData["url"], target: "_blank"}).appendTo(bodyBoxEl); 
 
-    //Append the final event grouping into our list group with the other events
-    eventBoxEl.appendTo(eventListGroupEl);
-  }
+        $("<label>").addClass("form-checkbox").html("<input type='checkbox'><i class='form-icon'></i> Add Event").appendTo(bodyBoxEl);
+        
+        //Append the final event grouping into our list group with the other events
+        eventBoxEl.appendTo(eventListGroupEl);
+}
+
+
+//return an object with event data for DOM manipulation and saving
+function createEventObject(event){
+    var eventData = {
+        name: event.name,
+        date: event.dates.start.localDate,
+        time: event.dates.start.localTime,
+        url: event.url,
+        id: event.id
+    }
+
+    return eventData;
 }
 
 //Return a 4 by 3 image from an image array
@@ -148,10 +166,39 @@ function get4by3Image(imageArray) {
   return "http://placehold.it/150";
 }
 
+//Provide an event to save into the user's saved list
+function saveEvent(eventData){
+    savedEvents.push(eventData);
+}
+
+//Called when an event checkbox is changed (clicked to on or off)
+function toggleEventSave(event){
+
+    //Initialize the index of the event that was clicked
+    var eventIndex = $(this).closest("#event-container").index();
+
+    //If the box is checked, then save the event otherwise remove event from saved list
+    if(event.target.checked){
+        //push our event data at the event index to the saved list to save
+        savedList.events.push(savedEvents[eventIndex]);
+        console.log(savedList);
+    }
+    else{
+        //scan through the saved event list and remove the event with a matching ID to the event that was checked
+        for(var i = 0; i < savedList.events.length; i++){
+            if(savedEvents[eventIndex].id === savedList.events[i].id){
+                savedList.events.splice(i, 1);
+            }
+        }
+        console.log(savedList);
+    }
+}
+
 //Click event for the 'events' button
-$("#events").on("click", function (event) {
-  fetchEventData();
-});
+$("#events").on("click", fetchEventData);
+
+//Change save status when clicking the checkboxes
+$(eventListGroupEl).on("change", "input", toggleEventSave);
 
 /***** Program Start *****/
 
