@@ -204,6 +204,9 @@ function toggleEventSave(event){
 
 //Ok.....
 console.log("This is a test")
+function justAFunction(){
+    console.log("arrrrrrrggggghhhh");
+}
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
