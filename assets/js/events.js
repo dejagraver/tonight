@@ -85,7 +85,6 @@ function fetchEventData()
     });
 }
 
-
 //Display events derived from event data
 function displayEventsList(eventData)
 {
@@ -100,7 +99,6 @@ function displayEventsList(eventData)
         displaySingleEvent(event);
     }
 }
-
 
 //Renders a single event
 function displaySingleEvent(event)
@@ -131,7 +129,6 @@ function displaySingleEvent(event)
         //Append the final event grouping into our list group with the other events
         eventBoxEl.appendTo(eventListGroupEl);
 }
-
 
 //return an object with event data for DOM manipulation and saving
 function createEventObject(event)
@@ -191,8 +188,7 @@ function toggleEventSave(event)
     }
 }
 
-
-//Presents an erro modal to the user with a specified message
+//Presents an error modal to the user with a specified message
 function openModal(message, modalTitle)
 {
   $(".modal-title").text(modalTitle);
@@ -202,7 +198,6 @@ function openModal(message, modalTitle)
   //show the modal
   $("#modal-id").addClass("active");
 }
-
 
 //Close the active modal by removing 'active class'
 function closeModal(event)
