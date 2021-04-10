@@ -63,16 +63,60 @@ function displayRecipe(data) {
       return ingredients;
     }, {});
 
+  var getArea = Object.keys(Recipe)
+    .filter(function (ingredient) {
+      return ingredient.indexOf("strArea") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (Recipe[ingredient] != null) {
+        ingredients[ingredient] = Recipe[ingredient];
+      }
+      return ingredients;
+    }, {});
+
+  var getCategory = Object.keys(Recipe)
+    .filter(function (ingredient) {
+      return ingredient.indexOf("strCategory") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (Recipe[ingredient] != null) {
+        ingredients[ingredient] = Recipe[ingredient];
+      }
+      return ingredients;
+    }, {});
+
+  var getSource = Object.keys(Recipe)
+    .filter(function (ingredient) {
+      return ingredient.indexOf("strSource") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (Recipe[ingredient] != null) {
+        ingredients[ingredient] = Recipe[ingredient];
+      }
+      return ingredients;
+    }, {});
+
   let value = getIngredients["strMeal"];
   listItem = document.createElement("li");
   listItem.innerHTML = value;
+  RecipeIngredients.appendChild(listItem);
+
+  let area = getArea["strArea"];
+  listItem = document.createElement("li");
+  listItem.innerHTML = area;
+  RecipeIngredients.appendChild(listItem);
+
+  let category = getCategory["strCategory"];
+  listItem = document.createElement("li");
+  listItem.innerHTML = category;
+  RecipeIngredients.appendChild(listItem);
+
+  let recipeSource = getSource["strSource"];
+  listItem = document.createElement("li");
+  listItem.innerHTML = recipeSource;
   RecipeIngredients.appendChild(listItem);
 }
 
 $("#recipe").on("click", function () {
   getRecipeData();
 });
-
-// function saveRecipe(data) {
-
-// }
