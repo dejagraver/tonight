@@ -32,6 +32,9 @@ function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
 
+  // var imageBoxEl = $("<div>").addClass("col-2").appendTo(recipeListEl);
+  // var bodyBoxEl = $("<div>").addClass("col-10").appendTo(recipeListEl);
+
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
@@ -60,12 +63,10 @@ function displayRecipe(data) {
       return ingredients;
     }, {});
 
-  for (let key in getIngredients) {
-    let value = getIngredients[key];
-    listItem = document.createElement("li");
-    listItem.innerHTML = value;
-    RecipeIngredients.appendChild(listItem);
-  }
+  let value = getIngredients["strMeal"];
+  listItem = document.createElement("li");
+  listItem.innerHTML = value;
+  RecipeIngredients.appendChild(listItem);
 }
 
 $("#recipe").on("click", function () {
