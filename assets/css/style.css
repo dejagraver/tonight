@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /* main html css */
 [class~="col-"].col-12,
@@ -36,6 +37,8 @@
 }
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
 
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
 .col-8 {
   width: 80%;
   height: 40%;
@@ -117,13 +120,17 @@
 
 .card {
 <<<<<<< HEAD
+<<<<<<< HEAD
     background: inherit;
     border: none;
+=======
+  background: inherit;
+  border: none;
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
 }
 
-
 img {
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   padding: 20px;
 }
 
@@ -132,22 +139,28 @@ img {
 }
 
 h2.card.text-center {
+<<<<<<< HEAD
 =======
   background: #fff;
   border: 1rem solid #dadee4;
   border-radius: 0.1rem;
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
 }
 
 .container {
   padding-left: 2rem;
-padding-right: 2rem;
-width: 100%;
+  padding-right: 2rem;
+  width: 100%;
 }
 
 .col-10 {
@@ -175,16 +188,16 @@ div.container:hover {
 }
 
 div.container {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   background-color: ivory;
 }
 
 .docs-brand {
-
 }
 
 img {
   height: 350px;
+<<<<<<< HEAD
   width: 350px;;
 }
 =======
@@ -195,3 +208,7 @@ img {
   border-top: 2px black solid;
 }
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+  width: 350px;
+}
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 body {
@@ -42,6 +43,8 @@ body {
 }
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
 
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
 .col-8 {
   width: 80%;
   height: 40%;
@@ -52,7 +55,10 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
 .card-tonight {
   background: #fff;
   border: 1rem solid #dadee4;
@@ -64,17 +70,17 @@ body {
 }
 
 .card {
-    background: #fff;
-    border: 1rem solid #dadee4;
-    border-radius: .1rem;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  background: #fff;
+  border: 1rem solid #dadee4;
+  border-radius: 0.1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .bg-secondary {
-  background: #f1f1fc!important;
+  background: #f1f1fc !important;
   color: inherit;
 }
 
@@ -89,15 +95,14 @@ body {
 
 /* For the image style  */
 .col-2 {
-max-height: 50%;
+  max-height: 50%;
 }
 
 .col-10 {
-
-} 
+}
 
 .container {
-border: 1px black;
+  border: 1px black;
 }
 
 img {
@@ -111,6 +116,7 @@ img {
 }
 
 .card {
+<<<<<<< HEAD
 =======
 .checkbox-wrapper input,
 .radio-wrapper input {
@@ -187,10 +193,13 @@ img {
   border: 1rem solid #dadee4;
   border-radius: 0.1rem;
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
 =======
@@ -206,3 +215,6 @@ img {
   padding: 20px;
 }
 >>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+}
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
