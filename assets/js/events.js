@@ -194,21 +194,29 @@ function openModal(message, modalTitle)
   $(".modal-title").text(modalTitle);
   
   //create a p element with a message and add it to the modal content
-  $("<p>").text(message).appendTo("#modal-id .content");
+  $("<p>").text(message).appendTo("#modal-message .content");
 
   //show the modal
-  $("#modal-id").addClass("active");
+  $("#modal-message").addClass("active");
 }
 
-//Close the active modal by removing 'active class'
 function closeModal(event)
 {
-  //hide the modal
-  $("#modal-id").removeClass("active");
+    //hide the modal
+    $("#modal-message").removeClass("active");
+    $("#modal-list").removeClass("active");
 }
 
+function openSavedList(event)
+{
+    //Open the saved list modal
+    $("#modal-list").addClass("active");
+}
 
 /***** Event Listeners *****/
+
+//Show the saved list modal when clicking the show list button
+$("#show-saved-list").on("click", openSavedList)
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
@@ -216,11 +224,11 @@ $("#events").on("click", fetchEventData);
 //Change save status when clicking the checkboxes
 $(eventListGroupEl).on("change", "input", toggleEventSave);
 
-//Closes the modal when clicked
-$("#modal-close").on("click", closeModal);
+//Closes the modal when the x or close button are clicked
+$(".modal-close, #close-modal-btn").on("click", closeModal);
 
 
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-//getLocation();
+getLocation();
