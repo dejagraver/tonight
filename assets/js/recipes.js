@@ -43,7 +43,11 @@ function displayRecipe(data) {
   RecipeDiv.appendChild(RecipeIngredients);
   $("<label>")
     .addClass("form-checkbox")
-    .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
+    .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
+    .appendTo(recipeListEl);
+  $("<label>")
+    .addClass("linebreak")
+    .html("<hr style=width: 100%>")
     .appendTo(recipeListEl);
 
   var getIngredients = Object.keys(Recipe)
@@ -68,3 +72,7 @@ function displayRecipe(data) {
 $("#recipe").on("click", function () {
   getRecipeData();
 });
+
+// function saveRecipe(data) {
+
+// }

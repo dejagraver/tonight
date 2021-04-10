@@ -182,6 +182,7 @@ function displaySingleEvent(event)
 //return an object with event data for DOM manipulation and saving
 function createEventObject(event)
 {
+<<<<<<< HEAD
     var eventData = {
         name: event.name,
         date: event.dates.start.localDate,
@@ -192,6 +193,17 @@ function createEventObject(event)
 
     return eventData;
 >>>>>>> b057e787d4bf3bc8de2f5ec6b9c24ee5dcd7d08d
+=======
+  var eventData = {
+    name: event.name,
+    date: event.dates.start.localDate,
+    time: event.dates.start.localTime,
+    url: event.url,
+    id: event.id
+  }
+
+  return eventData;
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
 }
 
 //Return a 4 by 3 image from an image array
@@ -242,22 +254,31 @@ function toggleEventSave(event)
 function openModal(message, modalTitle)
 {
   $(".modal-title").text(modalTitle);
+  
   //create a p element with a message and add it to the modal content
-  $("<p>").text(message).appendTo("#modal-id .content");
+  $("<p>").text(message).appendTo("#modal-message .content");
 
   //show the modal
-  $("#modal-id").addClass("active");
+  $("#modal-message").addClass("active");
 }
 
-//Close the active modal by removing 'active class'
 function closeModal(event)
 {
-  //hide the modal
-  $("#modal-id").removeClass("active");
+    //hide the modal
+    $("#modal-message").removeClass("active");
+    $("#modal-list").removeClass("active");
 }
 
+function openSavedList(event)
+{
+    //Open the saved list modal
+    $("#modal-list").addClass("active");
+}
 
 /***** Event Listeners *****/
+
+//Show the saved list modal when clicking the show list button
+$("#show-saved-list").on("click", openSavedList)
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
@@ -265,8 +286,8 @@ $("#events").on("click", fetchEventData);
 //Change save status when clicking the checkboxes
 $(eventListGroupEl).on("change", "input", toggleEventSave);
 
-//Closes the modal when clicked
-$("#modal-close").on("click", closeModal);
+//Closes the modal when the x or close button are clicked
+$(".modal-close, #close-modal-btn").on("click", closeModal);
 
 
 /***** Program Start *****/
