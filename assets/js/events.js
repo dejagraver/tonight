@@ -73,6 +73,7 @@ function fetchEventData()
         if(response.ok){
             response.json().then(function(data){
                 //Log the event data for troubleshooting and render event items to the screen
+                console.log(data)
                 displayEventsList(data);
             })
         }
@@ -191,7 +192,7 @@ function toggleEventSave(event)
 //Presents an error modal to the user with a specified message
 function openModal(message, modalTitle)
 {
-  $(".modal-title").text(modalTitle);
+  $("#modal-message-title").text(modalTitle);
   
   //create a p element with a message and add it to the modal content
   $("<p>").text(message).appendTo("#modal-message .content");
@@ -209,6 +210,17 @@ function closeModal(event)
 
 function openSavedList(event)
 {
+    if(savedList.events.length > 0){
+        var savedListEl = $("#saved-list-content");
+        savedListEl.html("");
+
+        for(var i = 0; i < savedList.events.length; i++){
+            var eventRef = savedList.events[i];
+
+            $("<p>").text(eventRef.name).appendTo(savedListEl);
+        }
+    }
+
     //Open the saved list modal
     $("#modal-list").addClass("active");
 }
@@ -231,4 +243,4 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-getLocation();
+//getLocation();
