@@ -86,7 +86,6 @@ function fetchEventData()
 }
 
 //Display events derived from event data
-<<<<<<< HEAD
 function displayEvents(eventData) {
   //Clear the current search box
   eventListGroupEl.html("");
@@ -133,7 +132,6 @@ function displayEvents(eventData) {
 
     //Append the final event grouping into our list group with the other events
     eventBoxEl.appendTo(eventListGroupEl);
-=======
 function displayEventsList(eventData)
 {
     //Clear the current search box
@@ -187,7 +185,7 @@ function createEventObject(event)
     time: event.dates.start.localTime,
     url: event.url,
     id: event.id
->>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+ 7a3337acf6f7047de5fb47b92448cd67b41dd157
   }
 
   return eventData;
