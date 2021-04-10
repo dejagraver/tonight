@@ -6,7 +6,7 @@ var savedList = {
     movies: [],
     events: [],
     recipes: []
-}
+};
 
 //Initialize a variable for the main event search list
 var eventListGroupEl = $("#event-list-group");
@@ -186,7 +186,6 @@ function createEventObject(event)
     time: event.dates.start.localTime,
     url: event.url,
     id: event.id
- 7a3337acf6f7047de5fb47b92448cd67b41dd157
   }
 
   return eventData;
@@ -290,4 +289,4 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-//getLocation();
+//getLocation()
