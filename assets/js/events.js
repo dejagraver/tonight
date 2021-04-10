@@ -73,6 +73,7 @@ function fetchEventData()
         if(response.ok){
             response.json().then(function(data){
                 //Log the event data for troubleshooting and render event items to the screen
+                console.log(data)
                 displayEventsList(data);
             })
         }
@@ -133,15 +134,19 @@ function displaySingleEvent(event)
 //return an object with event data for DOM manipulation and saving
 function createEventObject(event)
 {
-    var eventData = {
-        name: event.name,
-        date: event.dates.start.localDate,
-        time: event.dates.start.localTime,
-        url: event.url,
-        id: event.id
-    }
+  var eventData = {
+    name: event.name,
+    date: event.dates.start.localDate,
+    time: event.dates.start.localTime,
+    url: event.url,
+    id: event.id
+  }
 
+<<<<<<< HEAD
     return eventData;
+=======
+  return eventData;
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
 }
 
 //Return a 4 by 3 image from an image array
@@ -191,23 +196,43 @@ function toggleEventSave(event)
 //Presents an error modal to the user with a specified message
 function openModal(message, modalTitle)
 {
-  $(".modal-title").text(modalTitle);
+  $("#modal-message-title").text(modalTitle);
+  
   //create a p element with a message and add it to the modal content
-  $("<p>").text(message).appendTo("#modal-id .content");
+  $("<p>").text(message).appendTo("#modal-message .content");
 
   //show the modal
-  $("#modal-id").addClass("active");
+  $("#modal-message").addClass("active");
 }
 
-//Close the active modal by removing 'active class'
 function closeModal(event)
 {
-  //hide the modal
-  $("#modal-id").removeClass("active");
+    //hide the modal
+    $("#modal-message").removeClass("active");
+    $("#modal-list").removeClass("active");
 }
 
+function openSavedList(event)
+{
+    if(savedList.events.length > 0){
+        var savedListEl = $("#saved-list-content");
+        savedListEl.html("");
+
+        for(var i = 0; i < savedList.events.length; i++){
+            var eventRef = savedList.events[i];
+
+            $("<p>").text(eventRef.name).appendTo(savedListEl);
+        }
+    }
+
+    //Open the saved list modal
+    $("#modal-list").addClass("active");
+}
 
 /***** Event Listeners *****/
+
+//Show the saved list modal when clicking the show list button
+$("#show-saved-list").on("click", openSavedList)
 
 //Click event for the 'events' button
 $("#events").on("click", fetchEventData);
@@ -215,11 +240,13 @@ $("#events").on("click", fetchEventData);
 //Change save status when clicking the checkboxes
 $(eventListGroupEl).on("change", "input", toggleEventSave);
 
-//Closes the modal when clicked
-$("#modal-close").on("click", closeModal);
+//Closes the modal when the x or close button are clicked
+$(".modal-close, #close-modal-btn").on("click", closeModal);
 
 
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-getLocation();
+//getLocation();
+
+//ok :)

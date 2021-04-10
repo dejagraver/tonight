@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
     <meta name="viewport" content="width=initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+=======
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <title>Tonight</title>
 </head>
 
@@ -26,38 +30,45 @@
         </div>
 
     <main class="columns">
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button class="btn">Movies</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button id="events" class="btn">Events</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button id="recipe" class="btn">Recipes</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
-            <div class="card text-center">
-                <button id="recipe" class="btn">Show List</button>
+        <div class="col-12 col-xs-12">
+            <div class="card text-center row-3">
+                <div name="List Name" id="" type="text" autofocus="true" class="form-input">
+                    <span class="checkbox-wrapper">
+                        <input type="checkbox" name="age-confirm" id="checkbox" />
+                        <label for="checkbox"></label>
+                    </span>
+                </div>
             </div>
         </div>
-    
+        <div class="col-6 col-mx-auto"> 
+            <button id="show-saved-list" class="btn col-12">Show Saved List</button>
+        </div>
 
         <div class="column col-12 col-xs-12">
-            <h2 class="card text-center">
-                Tonight's Options
+            <h2 class="card text-center py-2 mb-0">
+                Tonight's Activities List
             </h2>
         </div>
 
         <!-- container html that will hold the events queried by the user -->
         <div class="container">
             <div class="columns"> 
-                <div id="event-list-group" class="col-12 bg-secondary"> 
+                <div id="event-list-group" class="col-10 col-mx-auto bg-secondary"> 
                     <!-- search results go here and form a list -->
                 </div>
             </div>
@@ -69,6 +80,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         
         <div class="container">
             <div class="columns">
@@ -76,15 +88,17 @@
             </div>
         </div>
         <div>
+=======
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
 
         <!-- modal that presents information to the user -->
         <!-- remove or add 'active' class to show or hide modal -->
-        <div class="modal" id="modal-id">
+        <div class="modal" id="modal-message">
             <a href="#close" class="modal-overlay" aria-label="Close"></a>
             <div class="modal-container">
                 <div class="modal-header">
-                    <a id="modal-close" href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
-                    <div class="modal-title h5">Modal Title</div>
+                    <a href="#close" class="btn btn-clear float-right modal-close" aria-label="Close"></a>
+                    <div id="modal-message-title"class="modal-title h5">Modal Title</div>
                 </div>
                 <div class="modal-body">
                     <div class="content">
@@ -93,6 +107,27 @@
                 </div>
             </div>
         </div>    
+
+        <!-- modal that displays saved list -->
+        <!-- remove or add 'active' class to show or hide modal -->
+        <div class="modal modal-lg" id="modal-list">
+            <a href="#close" class="modal-overlay" aria-label="Close"></a>
+            <div class="modal-container">
+                <div class="modal-header">
+                    <a href="#close" class="btn btn-clear float-right modal-close" aria-label="Close"></a>
+                    <div class="modal-title h5">Saved List</div>
+                </div>
+                <div class="modal-body">
+                    <div id="saved-list-content" class="content">
+                        <!-- content here -->
+                        No saved events
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="close-modal-btn" class="btn btn-primary">Close</button>
+                </div>
+            </div>
+        </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <script src="./assets/js/events.js"></script>

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
 body {
   width: 80%;
   padding: 120px;
@@ -37,6 +43,10 @@ body {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
 
 .col-8 {
   width: 80%;
@@ -118,6 +128,18 @@ body {
 }
 
 .card {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    background: #fff;
+    border: 1rem solid #dadee4;
+    border-radius: .1rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+=======
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
   background: #fff;
   border: 1rem solid #dadee4;
   border-radius: 0.1rem;
@@ -125,6 +147,10 @@ body {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
+<<<<<<< HEAD
+=======
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
 }
 
 .bg-secondary {
@@ -135,4 +161,45 @@ body {
 .col-12 {
   width: 100%;
   padding: 20px;
+<<<<<<< HEAD
 }
+=======
+} */
+
+/* .bg-gray {
+
+}
+<<<<<<< HEAD
+
+/* For the image style  */
+.col-2 {
+max-height: 50%;
+}
+
+.col-10 {
+
+} 
+
+.container {
+border: 1px black;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+=======
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+>>>>>>> 8e82f730f0e4bde228f5d688b5928406169fc2c9
