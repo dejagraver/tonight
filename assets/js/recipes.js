@@ -26,20 +26,22 @@ function getRecipeData() {
   recipeListEl.innerHTML = "";
 }
 
-
 //display random recipes in an array
 
 function displayRecipe(data) {
   var Recipe = data.meals[0];
-  var RecipeDiv = document.getElementById("recipe-list"); ``
+  var RecipeDiv = document.getElementById("recipe-list");
 
+  //creates the image and changes the size
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
 
-  var RecipeIngredients = document.createElement("ul");
+  //creates checkbox and line for separation
+  var RecipeIngredients = document.createElement("recipe-container");
+
   RecipeDiv.appendChild(RecipeIngredients);
   $("<label>")
     .addClass("form-checkbox")
@@ -50,9 +52,10 @@ function displayRecipe(data) {
     .html("<hr style=width: 100%>")
     .appendTo(recipeListEl);
 
+  //displays the name of the meal
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
-      return ingredient.indexOf("strMeal") == 0;
+      return ingredient.indexOf("strMeal") === 0;
     })
     .reduce(function (ingredients, ingredient) {
       if (Recipe[ingredient] != null) {
@@ -66,9 +69,11 @@ function displayRecipe(data) {
     listItem = document.createElement("li");
     listItem.innerHTML = value;
     RecipeIngredients.appendChild(listItem);
+    console.log(`${ingredient}`);
   }
 }
 
+//Recipe button
 $("#recipe").on("click", function () {
   getRecipeData();
 });
