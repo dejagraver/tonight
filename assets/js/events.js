@@ -244,3 +244,5 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 //Call get location at the start of the program so that we can use the user's geographic location
 //getLocation();
+
+//ok :)
