@@ -6,7 +6,7 @@ var savedList = {
     movies: [],
     events: [],
     recipes: []
-};
+}
 
 //Initialize a variable for the main event search list
 var eventListGroupEl = $("#event-list-group");
@@ -87,52 +87,6 @@ function fetchEventData()
 }
 
 //Display events derived from event data
-function displayEvents(eventData) {
-  //Clear the current search box
-  eventListGroupEl.html("");
-
-  //Run through each of the events provided in the event array
-  for (var i = 0; i < eventData._embedded.events.length; i++) {
-    //Collect all the variable from an individual event that we will be utilizing
-    var event = eventData._embedded.events[i];
-    var name = event.name;
-    var date = event.dates.start.localDate;
-    var time = event.dates.start.localTime;
-    var url = event.url;
-
-    //Find a 4 by 3 image to keep a consistent layout
-    var imgSource = get4by3Image(event.images);
-
-    //Initialize containers to hold the important event information
-    var eventBoxEl = $("<div>").addClass("container bg-gray");
-    var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
-    var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
-    var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
-
-    //Create elements that have the event data fed into them
-    $("<img>")
-      .attr("src", imgSource)
-      .addClass("img-responsive")
-      .appendTo(imageBoxEl);
-
-    $("<div>").addClass("card-title h5").text(name).appendTo(bodyBoxEl);
-    $("<div>")
-      .addClass("card-subtitle text-gray")
-      .text(date)
-      .appendTo(bodyBoxEl);
-    $("<p>").text(time).appendTo(bodyBoxEl);
-    $("<a>")
-      .text("Web URL")
-      .attr({ href: url, target: "_blank" })
-      .appendTo(bodyBoxEl);
-
-    $("<label>")
-      .addClass("form-checkbox")
-      .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
-      .appendTo(bodyBoxEl);
-
-    //Append the final event grouping into our list group with the other events
-    eventBoxEl.appendTo(eventListGroupEl);
 function displayEventsList(eventData)
 {
     //Clear the current search box
@@ -289,4 +243,6 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-//getLocation()
+//getLocation();
+
+//ok :)

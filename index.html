@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <title>Tonight</title>
 </head>
 
@@ -26,33 +25,36 @@
         </div>
 
     <main class="columns">
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button class="btn">Movies</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button id="events" class="btn">Events</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
+        <div class="column col-4 col-xs-12">
             <div class="card text-center">
                 <button id="recipe" class="btn">Recipes</button>
             </div>
         </div>
-        <div class="column col-3 col-xs-12">
-            <div class="card text-center">
-                <button id="recipe" class="btn">Show List</button>
+        <div class="col-12 col-xs-12">
+            <div class="card text-center row-3">
+                <div name="List Name" id="" type="text" autofocus="true" class="form-input">
+                    <span class="checkbox-wrapper">
+                        <input type="checkbox" name="age-confirm" id="checkbox" />
+                        <label for="checkbox"></label>
+                    </span>
+                </div>
             </div>
+        </div>
         <div class="col-6 col-mx-auto"> 
             <button id="show-saved-list" class="btn col-12">Show Saved List</button>
         </div>
-    
 
         <div class="column col-12 col-xs-12">
-            <h2 class="card text-center">
-                Tonight's Options
             <h2 class="card text-center py-2 mb-0">
                 Tonight's Activities List
             </h2>
