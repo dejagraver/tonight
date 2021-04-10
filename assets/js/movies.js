@@ -5,7 +5,7 @@ const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
-const movieBtn = document.getElementById("movie-btn")
+const movieBtn = document.getElementById("movies")
 
 
 
@@ -20,38 +20,16 @@ function showMovies(url){
             <div>
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
                 <div class="movie-info">
-                    <h1>${element.original_title}</h1>
-                    <h2>${element.release_date}</h2>
-                    <p>${element.overview}</p>
+                    <h1> Title: ${element.original_title}</h1>
+                    <h2> Release date: ${element.release_date}</h2>
+                    <h2> Rating: ${element.vote_average} <h2>
+                    <p> Description: ${element.overview}</p>
                 </div>
             </div>
         `;
-
         search.innerHTML += output
-
-       
-        // const el = document.createElement('div');
-        // const image = document.createElement('img');
-        // const text = document.createElement('h2');
-
-        // text.innerHTML = `${element.title}`;
-        // image.src = IMGPATH + element.poster_path;
-        // el.appendChild(image);
-        // el.appendChild(text);
-        // main.appendChild(el);
     }); 
 });
 }
 
 movieBtn.addEventListener('click', () => showMovies(apiUrl))
-
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     main.innerHTML = '';
-     
-//     const searchTerm = search.value;
-//     if (searchTerm) {
-//         showMovies(SEARCHAPI + searchTerm);
-//         search.value = "";
-//     }
-// });
