@@ -1,3 +1,9 @@
+body {
+  width: 80%;
+  padding: 120px;
+  margin: 20px;
+}
+
 [class~="col-"].col-12,
 [class~="col-"].col-11,
 [class~="col-"].col-10,
