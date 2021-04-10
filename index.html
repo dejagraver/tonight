@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,3 +144,84 @@
   </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <title>Tonight</title>
+</head>
+
+<body class="section section-hero bg-gray">
+    <header class="grid-hero container grid-lg text-center">
+        <h1 class="docs-brand">Tonight</h1>
+    </header>
+
+        <div class="section section-hero bg-gray">
+            <div class="grid-hero container grid-lg text-center">
+            <p> 
+            Looking for something to do... but can't make up your mind. Use the "Tonight" application to pick an event type and add to the list of things for you and friends to do. 
+            </p>
+            </div>
+        </div>
+
+    <main class="columns">
+        <div class="column col-4 col-xs-12">
+            <div class="card text-center">
+                <button class="btn" id="movies">Movies</button>
+            </div>
+        </div>
+        <div class="column col-4 col-xs-12">
+            <div class="card text-center">
+                <button class="btn" id="events">Events</button>
+            </div>
+        </div>
+        <div class="column col-4 col-xs-12">
+            <div class="card text-center">
+                <button class="btn" id="recipe">Restaurant</button>
+            </div>
+        </div>
+        <div class="column col-12 col-xs-12">
+            <div class="card text-center row-3">
+                <div name="List Name" id="" type="text" autofocus="true" class="form-input">
+                    <span class="checkbox-wrapper">
+                        <input type="checkbox" name="age-confirm" id="checkbox" />
+                        <label for="checkbox"></label>
+                    </span>
+                </div>
+            </div>
+                <button class="btn col-12">Add to List</button>
+            </div>
+        </div>
+        <div class="column col-12 col-xs-12">
+            <h2 class="card text-center">
+                Tonight's Activities List
+            </h2>
+            <div class="card-tonight"></div>
+        </div>
+
+        <!-- container html that will hold the events queried by the user -->
+        <div class="container">
+            <div class="columns"> 
+                <div id="event-list-group" class="col-12 bg-secondary"> 
+                    <h1>Events Search Box</h1>
+                    <!-- search results go here and form a list -->
+                    <div id="search"></div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="./assets/js/movies.js"></script>
+    <script src="./assets/js/recipes.js"></script>
+    <script src="./assets/js/events.js"></script>
+  </body>
+</html>
+>>>>>>> 873716836f1b39e0fb681eecb15ea5e56a1e9fcb
