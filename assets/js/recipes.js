@@ -26,11 +26,12 @@ function getRecipeData() {
   recipeListEl.innerHTML = "";
 }
 
+
 //display random recipes in an array
 
 function displayRecipe(data) {
   var Recipe = data.meals[0];
-  var RecipeDiv = document.getElementById("recipe-list");
+  var RecipeDiv = document.getElementById("recipe-list"); ``
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
