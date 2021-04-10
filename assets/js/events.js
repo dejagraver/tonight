@@ -133,15 +133,15 @@ function displaySingleEvent(event)
 //return an object with event data for DOM manipulation and saving
 function createEventObject(event)
 {
-    var eventData = {
-        name: event.name,
-        date: event.dates.start.localDate,
-        time: event.dates.start.localTime,
-        url: event.url,
-        id: event.id
-    }
+  var eventData = {
+    name: event.name,
+    date: event.dates.start.localDate,
+    time: event.dates.start.localTime,
+    url: event.url,
+    id: event.id
+  }
 
-    return eventData;
+  return eventData;
 }
 
 //Return a 4 by 3 image from an image array
@@ -192,6 +192,7 @@ function toggleEventSave(event)
 function openModal(message, modalTitle)
 {
   $(".modal-title").text(modalTitle);
+  
   //create a p element with a message and add it to the modal content
   $("<p>").text(message).appendTo("#modal-id .content");
 
@@ -222,4 +223,4 @@ $("#modal-close").on("click", closeModal);
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-getLocation();
+//getLocation();
