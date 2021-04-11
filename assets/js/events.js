@@ -113,35 +113,37 @@ function displaySingleEvent(event) {
 
   //Initialize containers to hold the important event information
   var eventBoxEl = $("<div>")
-    .addClass("container border-black bg-gray")
+    .addClass("container border-black bg-gray my-2")
     .attr("id", "event-container");
   var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
   var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
-  var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-10 p-2").appendTo(columnBoxEl);
 
   //Create elements that have the event data fed into them
+  var imageLinkRef = $("<a>")
+    .attr({ href: eventData["url"], target: "_blank" })
+    .appendTo(imageBoxEl);
   $("<img>")
     .attr("src", imgSource)
     .addClass("img-responsive")
-    .appendTo(imageBoxEl);
+    .appendTo(imageLinkRef);
 
   $("<div>")
     .addClass("card-title h5")
     .text(eventData["name"])
     .appendTo(bodyBoxEl);
+  $("<label>")
+    .addClass("form-checkbox")
+    .html(
+      "<input type='checkbox'><i class='form-icon'></i> Save event for later"
+    )
+    .appendTo(bodyBoxEl);
   $("<div>")
     .addClass("card-subtitle text-gray")
     .text(eventData["date"])
     .appendTo(bodyBoxEl);
-  $("<p>").text(eventData["time"]).appendTo(bodyBoxEl);
-  $("<a>")
-    .text("Web URL")
-    .attr({ href: eventData["url"], target: "_blank" })
-    .appendTo(bodyBoxEl);
-
-  $("<label>")
-    .addClass("form-checkbox")
-    .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
+  $("<p>")
+    .text("Start Time: " + eventData["time"])
     .appendTo(bodyBoxEl);
 
   //Append the final event grouping into our list group with the other events
@@ -291,19 +293,18 @@ function removeSavedItem(event) {
   saveListToStorage();
 }
 
+//Save the global list to local storage
 function saveListToStorage() {
   localStorage.setItem("savedList", JSON.stringify(savedList));
-  console.log("saved");
 }
 
+//Load the global list from local storage and set it
 function loadListFromStorage() {
   var storageList = JSON.parse(localStorage.getItem("savedList"));
 
   if (storageList) {
     savedList = storageList;
   }
-
-  console.log(savedList);
 }
 
 /***** Event Listeners *****/
