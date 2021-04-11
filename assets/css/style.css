@@ -41,6 +41,7 @@ h2.card.text-center.py-2.mb-0 {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   background-color: white;
+}
 
 .card-tonight {
   background: #fff;
@@ -88,18 +89,12 @@ width: 100%;
   border: 2px gray solid;
 }
 
-div.container {
+#event-container {
   transition: all .2s ease-in-out;
   background-color: white;
   box-shadow: #5755d9;
-#event-container {
-  transition: all .1s ease-in-out;
-  background-color: ivory;
 }
 
-/* .docs-brand {
-
-} */
 
 img {
   height: 350px;
