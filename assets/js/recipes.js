@@ -1,4 +1,12 @@
 var recipeListEl = document.getElementById("event-list-group");
+var savedItemsEl = document.getElementById("#saved-list-content");
+
+//Global Storage Array
+// var savedList = {
+//   movies: [],
+//   events: [],
+//   recipes: [],
+// };
 
 function getRecipeData() {
   let times = 20;
@@ -32,12 +40,6 @@ function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
 
-  // var recipeContainer = $("<div>").addClass("container").appendTo(recipeListEl);
-  // var imageBoxEl = $("<div>").addClass("col-2").appendTo(recipeListEl);
-  // var bodyBoxEl = $("<div>").addClass("col-10").appendTo(recipeListEl);
-
-  // recipeContainer.appendTo(recipeListEl);
-
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
@@ -45,7 +47,7 @@ function displayRecipe(data) {
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
 
-  var RecipeIngredients = document.createElement("ul"); //put ul back if necessary
+  var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
   RecipeDiv.appendChild(RecipeIngredients);
 
@@ -129,22 +131,47 @@ function displayRecipe(data) {
   RecipeIngredients.appendChild(listItem);
 
   let recipeSource = getSource["strSource"];
-  listItem = document.createElement("li");
-  listItem.innerHTML = recipeSource;
-  RecipeIngredients.appendChild(listItem);
+  if (recipeSource) {
+    var link = $("<li>").appendTo(listItem);
+    $("<a>")
+      .text("Recipe Link")
+      .attr("href", `${recipeSource}`)
+      .attr("target", "_blank")
+      .appendTo(link);
+  }
 
-  if (
-    recipeSource === null ||
-    recipeSource === undefined ||
-    recipeSource === ""
-  ) {
-    let recipeVideo = getVideo["strYoutube"];
-    listItem = document.createElement("li");
-    listItem.innerHTML = recipeVideo;
-    RecipeIngredients.appendChild(listItem);
+  let recipeVideo = getVideo["strYoutube"];
+  if (recipeVideo) {
+    var videolink = $("<li>").appendTo(listItem);
+    $("<a>")
+      .text("Recipe YouTube Video")
+      .attr("href", `${recipeVideo}`)
+      .attr("target", "_blank")
+      .appendTo(videolink);
   }
 }
 
 $("#recipe").on("click", function () {
   getRecipeData();
 });
+
+// var savedRecipe = ["Test", "Test 2"];
+
+// function saveRecipeToStorage() {
+//   localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
+//   console.log("saved");
+// }
+// function loadRecipeFromStorage() {
+//   var recipeList = JSON.parse(localStorage.getItem("savedRecipe"));
+
+//   if (recipeList) {
+//     savedRecipe = recipeList;
+//   }
+// }
+// console.log(savedRecipe);
+
+// function createRecipeObject(data) {
+//   var recipeData = {};
+
+//   return data;
+// }
