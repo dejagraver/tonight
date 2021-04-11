@@ -136,7 +136,7 @@ function displaySingleEvent(event) {
   $("<label>")
     .addClass("form-checkbox")
     .html(
-      "<input type='checkbox'><i class='form-icon'></i> Save event for later"
+      "<input class='event-checkbox'type='checkbox'><i class='form-icon'></i> Save event for later"
     )
     .appendTo(bodyBoxEl);
   $("<div>")
@@ -199,6 +199,8 @@ function get4by3Image(imageArray) {
 
 //Called when an event checkbox is changed (clicked to on or off)
 function toggleEventSave(event) {
+
+  console.log("pressed");
   //Initialize the index of the event that was clicked
   var eventIndex = $(this).closest("#event-container").index();
 
@@ -257,9 +259,7 @@ function openSavedList(event) {
 
 //Dynamically create the html for a saved event to appear in the saved list container
 function displaySavedItem(eventRef) {
-  var eventBoxEl = $("<div>").addClass(
-    "border-black bg-secondary p-2 saved-item-box"
-  );
+  var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
   var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
   var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
   var buttonBoxEl = $("<div>")
@@ -322,6 +322,10 @@ function loadListFromStorage() {
   }
 }
 
+
+
+
+
 /***** Event Listeners *****/
 
 //Show the saved list modal when clicking the show list button
@@ -337,6 +341,10 @@ $(eventListGroupEl).on("change", ".event-checkbox", toggleEventSave);
 $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 $(savedListEl).on("click", ".remove-btn", removeSavedItem);
+
+
+
+
 
 /***** Program Start *****/
 
