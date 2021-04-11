@@ -1,13 +1,6 @@
 var recipeListEl = document.getElementById("event-list-group");
 var savedItemsEl = document.getElementById("#saved-list-content");
 
-//Global Storage Array
-var savedList = {
-  movies: [],
-  events: [],
-  recipes: [],
-};
-
 //Specifically for saving recipes
 var savedRecipes = [];
 
@@ -42,6 +35,8 @@ function getRecipeData() {
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
+  var recipeBox = document.getElementById("recipe-container");
+  $(recipeBox).html("img").html("ul").appendTo(recipeListEl);
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
@@ -118,6 +113,11 @@ function displayRecipe(data) {
       return ingredients;
     }, {});
 
+  //pushing recipe object into saved recipes array
+  function saveRecipe(recipeObject) {
+    savedRecipes.push(recipeObject);
+  }
+
   let recipeName = getIngredients["strMeal"];
   listItem = document.createElement("li");
   listItem.innerHTML = recipeName;
@@ -172,12 +172,11 @@ function loadListFromStorage() {
   }
 }
 
-function createRecipeObject() {
+function createRecipeObject(recipe) {
   var recipeObject = {
-    nameOfRecipe,
-    recipeArea,
-    recipeCategory,
-    recipeWebsite,
+    name: recipe.strMeal,
+    category: recipe.strCategory,
+    url: recipe.strSource,
   };
   return recipeObject;
 }
