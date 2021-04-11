@@ -217,7 +217,19 @@ function openSavedList(event)
         for(var i = 0; i < savedList.events.length; i++){
             var eventRef = savedList.events[i];
 
-            $("<p>").text(eventRef.name).appendTo(savedListEl);
+            
+            var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2");
+            var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+            var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+            var buttonBoxEl = $("<div>").addClass("col-auto col-ml-auto").appendTo(columnBoxEl);
+
+            $("<p>").addClass("m-0").text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time ).appendTo(bodyBoxEl);
+
+            $("<button>").addClass("btn btn-primary mx-2").text("Webpage").appendTo(buttonBoxEl);
+            $("<button>").addClass("btn mx-2").text("Remove").appendTo(buttonBoxEl);
+
+            eventBoxEl.appendTo(savedListEl);
+            //$("<a>").attr("href", eventRef.url);
         }
     }
 
@@ -244,5 +256,3 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 //Call get location at the start of the program so that we can use the user's geographic location
 //getLocation();
-
-//ok :)

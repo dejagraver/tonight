@@ -3,10 +3,7 @@ body {
     background-image: "./assets/images/tonight.jpg";
 }
 
-p {
-}
-
-tonight-img
+.tonight-img
 .col-8 {
   width: 80%;
   height: 40%;
@@ -88,9 +85,9 @@ width: 100%;
   background-color: ivory;
 }
 
-.docs-brand {
+/* .docs-brand {
 
-}
+} */
 
 img {
   height: 350px;
@@ -101,3 +98,4 @@ img {
 .border-black {
   border-top: 2px gray solid;
 }
+
