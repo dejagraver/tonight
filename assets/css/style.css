@@ -8,7 +8,7 @@ body {
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
-  
+
 }
 
 .bg-title {
@@ -56,10 +56,6 @@ div.col-10 {
 
 img {
   border-radius: .9rem;
-  padding: 20px;
-}
-
-.column.col-12 {
   padding: 30px;
 }
 
@@ -70,8 +66,7 @@ width: 100%;
 }
 
 .col-10 {
-  padding: 30px;
-
+  padding: 30px;`
 }
 
 
@@ -87,15 +82,7 @@ div.container:hover {
 div.container {
   transition: all .2s ease-in-out;
   background-color: white;
-}
-
-.docs-brand {
-
-}
-
-img {
-  height: 350px;
-  width: 350px;;
+  box-shadow: #5755d9;
 }
 
 /* event custom styles */
