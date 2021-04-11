@@ -188,6 +188,9 @@ function toggleEventSave(event)
         }
         console.log(savedList);
     }
+
+    //Save the storage list every time an event is added or removed
+    saveListToStorage();
 }
 
 //Presents an error modal to the user with a specified message
@@ -263,6 +266,24 @@ function removeSavedItem(event){
             displaySavedItem(eventRef); 
         }
     }
+    
+    //Save the list to storage after it has been removed
+    saveListToStorage();
+}
+
+function saveListToStorage(){
+    localStorage.setItem("savedList", JSON.stringify(savedList));
+    console.log("saved");
+}
+
+function loadListFromStorage(){
+    var storageList = JSON.parse(localStorage.getItem("savedList"));
+    
+    if(storageList){
+        savedList = storageList;
+    }
+
+    console.log(savedList);
 }
 
 /***** Event Listeners *****/
@@ -286,3 +307,5 @@ $(savedListEl).on("click", ".remove-btn", removeSavedItem);
 
 //Call get location at the start of the program so that we can use the user's geographic location
 //getLocation();
+
+loadListFromStorage();
