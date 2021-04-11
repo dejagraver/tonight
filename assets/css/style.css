@@ -166,6 +166,10 @@ img {
   }
 }
 
+.modal.modal-lg {
+  background-image: url('../images/toronto.jpg');
+}
+
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
   .bg-title .btn {
