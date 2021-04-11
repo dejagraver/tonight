@@ -14,6 +14,8 @@ var savedListEl = $("#saved-list-content");
 
 //Initialize an event container for saving/loading
 var savedEvents = [];
+var savedRecipes = [];
+var savedMovies = [];
 
 //Initialize and provide a default value for the user's latitude and logitude in case we cannot take their location
 var userLat = 43.653226;
@@ -93,6 +95,8 @@ function fetchEventData() {
 function displayEventsList(eventData) {
   //Clear the current search box
   eventListGroupEl.html("");
+  //Reset our saved events array for saving
+  savedEvents = [];
 
   //Run through each of the events provided in the event array
   for (var i = 0; i < eventData._embedded.events.length; i++) {
@@ -135,7 +139,7 @@ function displaySingleEvent(event) {
   $("<label>")
     .addClass("form-checkbox")
     .html(
-      "<input type='checkbox'><i class='form-icon'></i> Save event for later"
+      "<input class='event-checkbox'type='checkbox'><i class='form-icon'></i> Save event for later"
     )
     .appendTo(bodyBoxEl);
   $("<div>")
@@ -163,6 +167,37 @@ function createEventObject(event) {
   return eventData;
 }
 
+function createRecipeObject() {
+  var recipeData = {
+    name: recipe.strMeal,
+    category: recipe.strCategory,
+    url: strSource,
+  };
+
+  return recipeData;
+}
+
+function createMovieObject() {
+  var movieData = {
+    //enter movies values here
+  };
+
+  return movieData;
+}
+
+//Provide an event to save into the user's saved list
+function saveEvent(eventData) {
+  savedEvents.push(eventData);
+}
+
+function saveRecipe(recipeData) {
+  savedRecipes.push(recipeData);
+}
+
+function saveRecipe(movieData) {
+  savedMovies.push(movieData);
+}
+
 //Return a 4 by 3 image from an image array
 function get4by3Image(imageArray) {
   //runs through and array of images
@@ -177,13 +212,9 @@ function get4by3Image(imageArray) {
   return "http://placehold.it/150";
 }
 
-//Provide an event to save into the user's saved list
-function saveEvent(eventData) {
-  savedEvents.push(eventData);
-}
-
 //Called when an event checkbox is changed (clicked to on or off)
 function toggleEventSave(event) {
+  console.log("event clicked");
   //Initialize the index of the event that was clicked
   var eventIndex = $(this).closest("#event-container").index();
 
@@ -200,6 +231,54 @@ function toggleEventSave(event) {
       }
     }
     console.log(savedList);
+  }
+
+  //Save the storage list every time an event is added or removed
+  saveListToStorage();
+}
+
+function toggleRecipeSave(event) {
+  console.log("recipe clicked");
+  //Initialize the index of the event that was clicked
+  var recipeIndex = $(this).closest("#recipe-container").index();
+
+  //If the box is checked, then save the event otherwise remove event from saved list
+  if (event.target.checked) {
+    //push our event data at the event index to the saved list to save
+    savedList.recipes.push(savedRecipes[recipeIndex]);
+    console.log(savedList);
+  } else {
+    //scan through the saved event list and remove the event with a matching ID to the event that was checked
+    // for (var i = 0; i < savedList.events.length; i++) {
+    //   if (savedEvents[eventIndex].id === savedList.events[i].id) {
+    //     savedList.events.splice(i, 1);
+    //   }
+    // }
+    // console.log(savedList);
+  }
+
+  //Save the storage list every time an event is added or removed
+  saveListToStorage();
+}
+
+function toggleMovieSave(event) {
+  console.log("movie clicked");
+  //Initialize the index of the event that was clicked
+  var movieIndex = $(this).closest("#movie-container").index();
+
+  //If the box is checked, then save the event otherwise remove event from saved list
+  if (event.target.checked) {
+    //push our event data at the event index to the saved list to save
+    savedList.movies.push(savedMovies[movieIndex]);
+    console.log(savedList);
+  } else {
+    //scan through the saved event list and remove the event with a matching ID to the event that was checked
+    // for (var i = 0; i < savedList.events.length; i++) {
+    //   if (savedEvents[eventIndex].id === savedList.events[i].id) {
+    //     savedList.events.splice(i, 1);
+    //   }
+    // }
+    // console.log(savedList);
   }
 
   //Save the storage list every time an event is added or removed
@@ -225,14 +304,30 @@ function closeModal(event) {
 
 //Opens the saved list with the users stored items
 function openSavedList(event) {
-  if (savedList.events.length > 0) {
-    savedListEl.html("");
+  savedListEl.html("");
 
+  if (savedList.events.length > 0) {
     for (var i = 0; i < savedList.events.length; i++) {
       var eventRef = savedList.events[i];
       displaySavedItem(eventRef);
     }
-  } else {
+  }
+
+  if (savedList.recipes.length > 0) {
+    for (var i = 0; i < savedList.recipes.length; i++) {
+      var recipeRef = savedList.recipes[i];
+      //displaySavedItem(recipeRef);
+    }
+  }
+
+  if (savedList.movies.length > 0) {
+    for (var i = 0; i < savedList.movies.length; i++) {
+      var movieRef = savedList.movies[i];
+      //displaySavedItem(movieRef);
+    }
+  }
+
+  if (!savedList.events && !savedList.recipes && !savedList.movies) {
     savedListEl.html("No Saved Events");
   }
 
@@ -267,6 +362,66 @@ function displaySavedItem(eventRef) {
     .addClass("btn mx-2 remove-btn")
     .text("Remove")
     .appendTo(buttonBoxEl);
+
+  eventBoxEl.appendTo(savedListEl);
+}
+
+function displaySavedRecipe(recipeRef) {
+  var eventBoxEl = $("<div>").addClass(
+    "border-black bg-secondary p-2 saved-item-box"
+  );
+  var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+  var buttonBoxEl = $("<div>")
+    .addClass("col-auto col-ml-auto")
+    .appendTo(columnBoxEl);
+
+  // $("<p>")
+  //   .addClass("m-0 p-2")
+  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
+  //   .appendTo(bodyBoxEl);
+
+  // var webpageLinkEl = $("<a>")
+  //   .attr({ href: eventRef.url, target: "_blank" })
+  //   .appendTo(buttonBoxEl);
+  // $("<button>")
+  //   .addClass("btn btn-primary mx-2")
+  //   .text("Webpage")
+  //   .appendTo(webpageLinkEl);
+  // $("<button>")
+  //   .addClass("btn mx-2 remove-btn")
+  //   .text("Remove")
+  //   .appendTo(buttonBoxEl);
+
+  eventBoxEl.appendTo(savedListEl);
+}
+
+function displaySavedMovie(movieRef) {
+  var eventBoxEl = $("<div>").addClass(
+    "border-black bg-secondary p-2 saved-item-box"
+  );
+  var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+  var buttonBoxEl = $("<div>")
+    .addClass("col-auto col-ml-auto")
+    .appendTo(columnBoxEl);
+
+  // $("<p>")
+  //   .addClass("m-0 p-2")
+  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
+  //   .appendTo(bodyBoxEl);
+
+  // var webpageLinkEl = $("<a>")
+  //   .attr({ href: eventRef.url, target: "_blank" })
+  //   .appendTo(buttonBoxEl);
+  // $("<button>")
+  //   .addClass("btn btn-primary mx-2")
+  //   .text("Webpage")
+  //   .appendTo(webpageLinkEl);
+  // $("<button>")
+  //   .addClass("btn mx-2 remove-btn")
+  //   .text("Remove")
+  //   .appendTo(buttonBoxEl);
 
   eventBoxEl.appendTo(savedListEl);
 }
@@ -317,6 +472,8 @@ $("#events").on("click", fetchEventData);
 
 //Change save status when clicking the checkboxes
 $(eventListGroupEl).on("change", ".event-checkbox", toggleEventSave);
+$(eventListGroupEl).on("change", ".recipe-checkbox", toggleRecipeSave);
+$(eventListGroupEl).on("change", ".movie-checkbox", toggleMovieSave);
 
 //Closes the modal when the x or close button are clicked
 $(".modal-close, #close-modal-btn").on("click", closeModal);

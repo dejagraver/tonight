@@ -5,6 +5,7 @@ var savedItemsEl = document.getElementById("#saved-list-content");
 var savedRecipes = [];
 
 function getRecipeData() {
+  savedRecipes = [];
   let times = 20;
   let arr = [];
   for (let i = 0; i < times; i++) {
@@ -27,6 +28,7 @@ function getRecipeData() {
       });
   } //once loop is done
   console.log(arr);
+  savedRecipes = arr;
   recipeListEl.innerHTML = "";
 }
 
@@ -163,24 +165,24 @@ $("#recipe").on("click", function () {
   getRecipeData();
 });
 
-function saveListToStorage() {
-  localStorage.setItem("savedList", JSON.stringify(savedList));
-}
+// function saveListToStorage() {
+//   localStorage.setItem("savedList", JSON.stringify(savedList));
+// }
 
-//Load the global list from local storage and set it
-function loadListFromStorage() {
-  var storageList = JSON.parse(localStorage.getItem("savedList"));
+// //Load the global list from local storage and set it
+// function loadListFromStorage() {
+//   var storageList = JSON.parse(localStorage.getItem("savedList"));
 
-  if (storageList) {
-    savedList = storageList;
-  }
-}
+//   if (storageList) {
+//     savedList = storageList;
+//   }
+// }
 
-function createRecipeObject(recipe) {
-  var recipeObject = {
-    name: recipe.strMeal,
-    category: recipe.strCategory,
-    url: recipe.strSource,
-  };
-  return recipeObject;
-}
+// function createRecipeObject(recipe) {
+//   var recipeObject = {
+//     name: recipe.strMeal,
+//     category: recipe.strCategory,
+//     url: recipe.strSource,
+//   };
+//   return recipeObject;
+// }
