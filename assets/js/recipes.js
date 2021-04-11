@@ -35,8 +35,10 @@ function getRecipeData() {
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
-  var recipeBox = document.getElementById("recipe-container");
-  $(recipeBox).html("img").html("ul").appendTo(recipeListEl);
+  var recipeBox = $("<div>")
+    .addClass("container border-black bg-gray my-2")
+    .attr("id", "recipe-container");
+  recipeBox.appendTo(recipeListEl);
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
