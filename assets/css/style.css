@@ -79,6 +79,11 @@ div.card-title.h5 {
   display: inline-block;
 }
 
+img.img-repsonsive {
+  width: 132px;
+  height: 113px;
+}
+
 .saved {
   padding-top: 20px;
 }
