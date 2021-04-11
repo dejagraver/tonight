@@ -2,11 +2,14 @@ var recipeListEl = document.getElementById("event-list-group");
 var savedItemsEl = document.getElementById("#saved-list-content");
 
 //Global Storage Array
-// var savedList = {
-//   movies: [],
-//   events: [],
-//   recipes: [],
-// };
+var savedList = {
+  movies: [],
+  events: [],
+  recipes: [],
+};
+
+//Specifically for saving recipes
+var savedRecipes = [];
 
 function getRecipeData() {
   let times = 20;
@@ -115,9 +118,9 @@ function displayRecipe(data) {
       return ingredients;
     }, {});
 
-  let value = getIngredients["strMeal"];
+  let recipeName = getIngredients["strMeal"];
   listItem = document.createElement("li");
-  listItem.innerHTML = value;
+  listItem.innerHTML = recipeName;
   RecipeIngredients.appendChild(listItem);
 
   let area = getArea["strArea"];
@@ -148,6 +151,7 @@ function displayRecipe(data) {
       .attr("href", `${recipeVideo}`)
       .attr("target", "_blank")
       .appendTo(videolink);
+    console.log(Recipe);
   }
 }
 
@@ -155,23 +159,25 @@ $("#recipe").on("click", function () {
   getRecipeData();
 });
 
-// var savedRecipe = ["Test", "Test 2"];
+function saveListToStorage() {
+  localStorage.setItem("savedList", JSON.stringify(savedList));
+}
 
-// function saveRecipeToStorage() {
-//   localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
-//   console.log("saved");
-// }
-// function loadRecipeFromStorage() {
-//   var recipeList = JSON.parse(localStorage.getItem("savedRecipe"));
+//Load the global list from local storage and set it
+function loadListFromStorage() {
+  var storageList = JSON.parse(localStorage.getItem("savedList"));
 
-//   if (recipeList) {
-//     savedRecipe = recipeList;
-//   }
-// }
-// console.log(savedRecipe);
+  if (storageList) {
+    savedList = storageList;
+  }
+}
 
-// function createRecipeObject(data) {
-//   var recipeData = {};
-
-//   return data;
-// }
+function createRecipeObject() {
+  var recipeObject = {
+    nameOfRecipe,
+    recipeArea,
+    recipeCategory,
+    recipeWebsite,
+  };
+  return recipeObject;
+}

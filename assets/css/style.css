@@ -40,11 +40,11 @@ h2 {
 }
 
 .bg-title {
- color: orange;
- font-style:italic;
- opacity: 0.6;
- padding-top: 20px;
- font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+  color: orange;
+  font-style: italic;
+  opacity: 0.6;
+  padding-top: 20px;
+  font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 .btn {
