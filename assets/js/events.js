@@ -311,5 +311,3 @@ $(savedListEl).on("click", ".remove-btn", removeSavedItem);
 //getLocation();
 
 loadListFromStorage();
-
-//:)
