@@ -1,4 +1,12 @@
 var recipeListEl = document.getElementById("event-list-group");
+var savedItemsEl = document.getElementById("#saved-list-content");
+
+//Global Storage Array
+var savedList = {
+  movies: [],
+  events: [],
+  recipes: [],
+};
 
 function getRecipeData() {
   let times = 20;
@@ -129,9 +137,13 @@ function displayRecipe(data) {
   RecipeIngredients.appendChild(listItem);
 
   let recipeSource = getSource["strSource"];
-  listItem = document.createElement("li");
-  listItem.innerHTML = recipeSource;
-  RecipeIngredients.appendChild(listItem);
+  // listItem = document.createElement("li");
+  // listItem.innerHTML = recipeSource;
+  // RecipeIngredients.appendChild(listItem);
+  var link = $("<li>").appendTo(listItem);
+  $("<a>").text("Recipe Link!").attr("href", `${recipeSource}`).appendTo(link);
+
+  // console.log(RecipeIngredients);
 
   if (
     recipeSource === null ||
@@ -142,9 +154,28 @@ function displayRecipe(data) {
     listItem = document.createElement("li");
     listItem.innerHTML = recipeVideo;
     RecipeIngredients.appendChild(listItem);
+  } else if (
+    recipeVideo === null ||
+    recipeVideo === undefined ||
+    recipeVideo === ""
+  ) {
+    RecipeIngredients.removeChild(listItem);
   }
 }
 
 $("#recipe").on("click", function () {
   getRecipeData();
 });
+
+function saveListToStorage() {
+  localStorage.setItem("savedList", JSON.stringify(savedList));
+  console.log("saved");
+}
+function loadListFromStorage() {
+  var storageList = JSON.parse(localStorage.getItem("savedList"));
+
+  if (storageList) {
+    savedList = storageList;
+  }
+}
+console.log(savedList);
