@@ -3,10 +3,7 @@ body {
     background-image: "./assets/images/tonight.jpg";
 }
 
-p {
-}
-
-tonight-img
+.tonight-img
 .col-8 {
   width: 80%;
   height: 40%;
@@ -76,18 +73,20 @@ width: 100%;
   transform: scale(1.1);
 } */
 
-div.container:hover {
+#event-container:hover {
   transform: scale(1.1);
+  box-shadow: 5px 5px 8px;
+  border: 2px gray solid;
 }
 
-div.container {
-  transition: all .2s ease-in-out;
+#event-container {
+  transition: all .1s ease-in-out;
   background-color: ivory;
 }
 
-.docs-brand {
+/* .docs-brand {
 
-}
+} */
 
 img {
   height: 350px;
@@ -96,5 +95,6 @@ img {
 
 /* event custom styles */
 .border-black {
-  border-top: 2px black solid;
+  border-top: 2px gray solid;
 }
+

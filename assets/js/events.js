@@ -8,8 +8,9 @@ var savedList = {
     recipes: []
 }
 
-//Initialize a variable for the main event search list
+//Initialize a variable for the main event search list and saved event list
 var eventListGroupEl = $("#event-list-group");
+var savedListEl = $("#saved-list-content");
 
 //Initialize an event container for saving/loading
 var savedEvents = [];
@@ -208,21 +209,60 @@ function closeModal(event)
     $("#modal-list").removeClass("active");
 }
 
+//Opens the saved list with the users stored items
 function openSavedList(event)
 {
     if(savedList.events.length > 0){
-        var savedListEl = $("#saved-list-content");
         savedListEl.html("");
 
         for(var i = 0; i < savedList.events.length; i++){
+           
             var eventRef = savedList.events[i];
-
-            $("<p>").text(eventRef.name).appendTo(savedListEl);
+            displaySavedItem(eventRef); 
         }
     }
 
     //Open the saved list modal
     $("#modal-list").addClass("active");
+}
+
+//Dynamically create the html for a saved event to appear in the saved list container
+function displaySavedItem(eventRef)
+{
+    var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
+    var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+    var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+    var buttonBoxEl = $("<div>").addClass("col-auto col-ml-auto").appendTo(columnBoxEl);
+
+    $("<p>").addClass("m-0 p-2").text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time ).appendTo(bodyBoxEl);
+
+    var webpageLinkEl = $("<a>").attr({href: eventRef.url, target: "_blank"}).appendTo(buttonBoxEl)
+    $("<button>").addClass("btn btn-primary mx-2").text("Webpage").appendTo(webpageLinkEl);
+    $("<button>").addClass("btn mx-2 remove-btn").text("Remove").appendTo(buttonBoxEl);
+
+    eventBoxEl.appendTo(savedListEl);
+}
+
+function removeSavedItem(event){
+
+    //Get the index of the event that was clicked to remove
+    var itemIndex = $(this).closest(".saved-item-box").index();
+
+    //Remove the item from saved list
+    savedList.events.splice(itemIndex, 1);
+    
+    if(savedList.events.length === 0){
+        savedListEl.html("No saved events");
+    }
+    else{
+        savedListEl.html("");
+
+        for(var i = 0; i < savedList.events.length; i++){
+           
+            var eventRef = savedList.events[i];
+            displaySavedItem(eventRef); 
+        }
+    }
 }
 
 /***** Event Listeners *****/
@@ -239,10 +279,10 @@ $(eventListGroupEl).on("change", "input", toggleEventSave);
 //Closes the modal when the x or close button are clicked
 $(".modal-close, #close-modal-btn").on("click", closeModal);
 
+$(savedListEl).on("click", ".remove-btn", removeSavedItem);
+
 
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
 //getLocation();
-
-//ok :)

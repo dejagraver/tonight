@@ -1,4 +1,4 @@
-var recipeListEl = document.getElementById("recipe-list");
+var recipeListEl = document.getElementById("event-list-group");
 
 function getRecipeData() {
   let times = 20;
@@ -26,12 +26,11 @@ function getRecipeData() {
   recipeListEl.innerHTML = "";
 }
 
-
 //display random recipes in an array
 
 function displayRecipe(data) {
   var Recipe = data.meals[0];
-  var RecipeDiv = document.getElementById("recipe-list"); 
+  var RecipeDiv = document.getElementById("event-list-group");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
