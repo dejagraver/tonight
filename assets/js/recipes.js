@@ -37,28 +37,30 @@ function displayRecipe(data) {
   var RecipeDiv = document.getElementById("event-list-group");
   var recipeBox = $("<div>")
     .addClass("container border-black bg-gray my-2")
-    .attr("id", "recipe-container");
-  recipeBox.appendTo(recipeListEl);
+    .attr("id", "recipe-container")
+    .appendTo(RecipeDiv);
+  // recipeBox.append(RecipeImg).append(RecipeIngredients);
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
-  RecipeImg.style.cssText = "width:300px;height:300px;";
-  $(RecipeImg).addClass("inline-img");
   RecipeImg.src = Recipe.strMealThumb;
-  RecipeDiv.appendChild(RecipeImg);
+  $(RecipeImg).addClass("inline-img");
+  // RecipeDiv.appendChild(RecipeImg);
+  $(RecipeImg).appendTo(recipeBox);
 
   var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
-  RecipeDiv.appendChild(RecipeIngredients);
+  // RecipeDiv.appendChild(RecipeIngredients);
+  $(RecipeIngredients).appendTo(recipeBox);
 
   $("<label>")
     .addClass("form-checkbox")
     .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
-    .appendTo(recipeListEl);
+    .appendTo(recipeBox);
   $("<label>")
     .addClass("linebreak")
     .html("<hr style=width: 100%>")
-    .appendTo(recipeListEl);
+    .appendTo(recipeBox);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
