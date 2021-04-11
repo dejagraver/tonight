@@ -105,31 +105,32 @@ function displayEventsList(eventData)
 //Renders a single event
 function displaySingleEvent(event)
 {
-        //Collect all the variable from an individual event that we will be utilizing
-        var eventData = createEventObject(event);
-        saveEvent(eventData);
+    //Collect all the variable from an individual event that we will be utilizing
+    var eventData = createEventObject(event);
+    saveEvent(eventData);
 
-        //Find a 4 by 3 image to keep a consistent layout
-        var imgSource = get4by3Image(event.images);
-        
-        //Initialize containers to hold the important event information
-        var eventBoxEl = $("<div>").addClass("container border-black bg-gray").attr("id", "event-container");
-        var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
-        var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
-        var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
+    //Find a 4 by 3 image to keep a consistent layout
+    var imgSource = get4by3Image(event.images);
     
-        //Create elements that have the event data fed into them
-        $("<img>").attr("src",imgSource).addClass("img-responsive").appendTo(imageBoxEl);
-    
-        $("<div>").addClass("card-title h5").text(eventData["name"]).appendTo(bodyBoxEl);
-        $("<div>").addClass("card-subtitle text-gray").text(eventData["date"]).appendTo(bodyBoxEl);
-        $("<p>").text(eventData["time"]).appendTo(bodyBoxEl);
-        $("<a>").text("Web URL").attr({href: eventData["url"], target: "_blank"}).appendTo(bodyBoxEl); 
+    //Initialize containers to hold the important event information
+    var eventBoxEl = $("<div>").addClass("container border-black bg-gray my-2").attr("id", "event-container");
+    var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+    var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
+    var bodyBoxEl = $("<div>").addClass("col-10 p-2").appendTo(columnBoxEl);
 
-        $("<label>").addClass("form-checkbox").html("<input type='checkbox'><i class='form-icon'></i> Add Event").appendTo(bodyBoxEl);
-        
-        //Append the final event grouping into our list group with the other events
-        eventBoxEl.appendTo(eventListGroupEl);
+    //Create elements that have the event data fed into them
+    var imageLinkRef = $("<a>").attr({href: eventData["url"], target: "_blank"}).appendTo(imageBoxEl);
+    $("<img>").attr("src",imgSource).addClass("img-responsive").appendTo(imageLinkRef);
+
+    $("<div>").addClass("card-title h5").text(eventData["name"]).appendTo(bodyBoxEl);
+    $("<label>").addClass("form-checkbox").html("<input type='checkbox'><i class='form-icon'></i> Save event for later").appendTo(bodyBoxEl);
+    $("<div>").addClass("card-subtitle text-gray").text(eventData["date"]).appendTo(bodyBoxEl);
+    $("<p>").text("Start Time: " + eventData["time"]).appendTo(bodyBoxEl);
+
+   
+    
+    //Append the final event grouping into our list group with the other events
+    eventBoxEl.appendTo(eventListGroupEl);
 }
 
 //return an object with event data for DOM manipulation and saving
@@ -274,19 +275,18 @@ function removeSavedItem(event){
     saveListToStorage();
 }
 
+//Save the global list to local storage
 function saveListToStorage(){
     localStorage.setItem("savedList", JSON.stringify(savedList));
-    console.log("saved");
 }
 
+//Load the global list from local storage and set it
 function loadListFromStorage(){
     var storageList = JSON.parse(localStorage.getItem("savedList"));
     
     if(storageList){
         savedList = storageList;
     }
-
-    console.log(savedList);
 }
 
 /***** Event Listeners *****/
