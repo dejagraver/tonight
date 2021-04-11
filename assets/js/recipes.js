@@ -9,6 +9,7 @@ var savedItemsEl = document.getElementById("#saved-list-content");
 // };
 
 function getRecipeData() {
+  savedRecipes = [];
   let times = 20;
   let arr = [];
   for (let i = 0; i < times; i++) {
@@ -22,7 +23,7 @@ function getRecipeData() {
         }
       })
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
         arr.push(data.meals[0]); //push data into array
         displayRecipe(data); //display the recipe 20 times
       })
@@ -31,6 +32,7 @@ function getRecipeData() {
       });
   } //once loop is done
   console.log(arr);
+  savedRecipes = arr;
   recipeListEl.innerHTML = "";
 }
 

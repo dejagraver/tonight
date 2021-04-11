@@ -246,7 +246,7 @@ function toggleRecipeSave(event)
 {
   console.log("recipe clicked");
   //Initialize the index of the event that was clicked
-  var recipeIndex = $(this).closest("#event-container").index();
+  var recipeIndex = $(this).closest("#recipe-container").index();
 
   //If the box is checked, then save the event otherwise remove event from saved list
   if (event.target.checked) {
@@ -272,7 +272,7 @@ function toggleMovieSave(event)
 {
   console.log("movie clicked");
   //Initialize the index of the event that was clicked
-  var movieIndex = $(this).closest("#event-container").index();
+  var movieIndex = $(this).closest("#movie-container").index();
 
   //If the box is checked, then save the event otherwise remove event from saved list
   if (event.target.checked) {
