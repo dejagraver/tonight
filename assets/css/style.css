@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .tonight-img {
@@ -11,37 +12,90 @@ body {
 
 }
 
+h1 {
+  position: relative;
+  padding-top: 110px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:120px;
+	letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 
+						8px 8px #ff8b1f,
+						20px 20px #e7a962;
+}
+
+h2 {
+  position: relative;
+  padding-top: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:70px;
+	letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 
+						8px 8px #ff8b1f,
+						20px 20px #e7a962;
+}
+
 .bg-title {
- background-color: white;
+  text-align: center;
+ color: orange;
+ font-style:italic;
+ font-weight:lighter;
+ font-family: fantasy;
  opacity: 0.6;
  border-radius: 0.5rem;
  padding-top: 20px;
  font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 }
+
 .btn {
   opacity: 0.6;
+  text-align: center;
   border-radius: 0.5rem;
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: oblique;
+  color: orange;
+  border:orange;
+  box-shadow: #ff8b1f;
 }
 
+div.card-title.h5 {
+  color: #fff;
+		font-size: 20px;
+		font-family: "ubuntu";
+		text-transform: uppercase;
+		font-weight: 700;
+		font-family: "Josefin Sans", sans-serif;
+		background: linear-gradient(to right,#ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
+		background-size: auto auto;
+		background-clip: border-box;
+		background-size: 200% auto;
+		color: #fff;
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: textclip 1.5s linear infinite;
+		display: inline-block;
+}
 .saved {
 padding-top: 20px;
 }
+
 h2.card.text-center.py-2.mb-0 {
   border-width: 1rem;
+  color: orange;
+}
 
-}
-.col-8 {
-  width: 80%;
-  height: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-  background-color: white;
-}
 
 .card-tonight {
   background: #fff;
@@ -67,42 +121,64 @@ img {
   padding: 30px;
 }
 
-.container {
-  padding-left: 2rem;
-padding-right: 2rem;
-width: 100%;
-}
 
-.col-10 {
-  padding: 30px;
-}
 
 
 .form-icon:hover {
-  background: #5755d9;
+  background: orange;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+  
 }
 
 
-#event-container:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 8px;
-  border: 2px gray solid;
+
+.col-10 {
+  background-image: url ('../images/lights,jpeg');
 }
 
 #event-container {
+  visibility:visible;
   transition: all .2s ease-in-out;
   background-color: white;
-  box-shadow: #5755d9;
+  box-shadow: orange;
+  border-radius: 1rem;
 }
 
+#event-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+}
 
 img {
   height: 350px;
   width: 350px;;
 }
 
-/* event custom styles */
-.border-black {
-  border-top: 2px gray solid;
+@media screen and (max-width: 768px) {
+    
+  .bg-title .btn {
+      display: table-header-group;
+  }
+
+  .tonight-img {
+      flex: 0 32%;
+      margin-right: 0;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
 }
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+ 
+  .bg-title .btn {
+    display: table-header-group;
+}
+}
+
 
