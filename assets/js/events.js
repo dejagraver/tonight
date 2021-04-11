@@ -305,7 +305,6 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 $(savedListEl).on("click", ".remove-btn", removeSavedItem);
 
-
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
