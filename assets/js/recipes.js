@@ -30,10 +30,59 @@ function getRecipeData() {
 
 function displayRecipe(data) {
   var Recipe = data.meals[0];
-  var RecipeDiv = document.getElementById("event-list-group");
+  // var RecipeDiv = document.getElementById("event-list-group");
+  var RecipeImg = document.createElement("img");
 
-  // var imageBoxEl = $("<div>").addClass("col-2").appendTo(recipeListEl);
-  // var bodyBoxEl = $("<div>").addClass("col-10").appendTo(recipeListEl);
+  //Collect all the variable from an individual event that we will be utilizing
+  var recipeData = createEventObject(Recipe);
+  saveEvent(recipeData);
+
+  //Initialize containers to hold the important event information
+  var eventBoxEl = $("<div>")
+    .addClass("container border-black bg-gray")
+    .attr("id", "recipe-container");
+  var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+  var imageBoxEl = $("<div>").addClass("col-2").appendTo(columnBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-10").appendTo(columnBoxEl);
+
+  //Create elements that have the event data fed into them
+  $("<img>")
+    .attr("src", RecipeImg)
+    .addClass("img-responsive")
+    .appendTo(imageBoxEl);
+
+  $("<div>")
+    .addClass("card-title h5")
+    .text(recipeData["name"])
+    .appendTo(bodyBoxEl);
+  $("<div>")
+    .addClass("card-subtitle text-gray")
+    .text(recipeData["info"])
+    .appendTo(bodyBoxEl);
+  $("<p>").text(recipeData["time"]).appendTo(bodyBoxEl);
+  $("<a>")
+    .text("Web URL")
+    .attr({ href: recipeData["url"], target: "_blank" })
+    .appendTo(bodyBoxEl);
+
+  $("<label>")
+    .addClass("form-checkbox")
+    .html("<input type='checkbox'><i class='form-icon'></i> Add Event")
+    .appendTo(bodyBoxEl);
+
+  //Append the final event grouping into our list group with the other events
+  recipeBoxEl.appendTo(recipeListEl);
+}
+
+$("#recipe").on("click", function () {
+  getRecipeData();
+});
+
+/* 
+
+var recipeContainer = $("<div>").addClass("container").appendTo(recipeListEl);
+  var imageBoxEl = $("<div>").addClass("col-2").appendTo(recipeListEl);
+  var bodyBoxEl = $("<div>").addClass("col-10").appendTo(recipeListEl);
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
@@ -41,8 +90,14 @@ function displayRecipe(data) {
   RecipeImg.src = Recipe.strMealThumb;
   RecipeDiv.appendChild(RecipeImg);
 
-  var RecipeIngredients = document.createElement("ul");
+  var RecipeIngredients = document.createElement("div"); //put ul back if necessary
   RecipeDiv.appendChild(RecipeIngredients);
+
+  // $("<img>")
+  //   .attr("src", RecipeImg)
+  //   .addClass("img-responsive")
+  //   .appendTo(imageBoxEl);
+
   $("<label>")
     .addClass("form-checkbox")
     .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
@@ -96,6 +151,17 @@ function displayRecipe(data) {
       return ingredients;
     }, {});
 
+  var getVideo = Object.keys(Recipe)
+    .filter(function (ingredient) {
+      return ingredient.indexOf("strYoutube") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (Recipe[ingredient] != null) {
+        ingredients[ingredient] = Recipe[ingredient];
+      }
+      return ingredients;
+    }, {});
+
   let value = getIngredients["strMeal"];
   listItem = document.createElement("li");
   listItem.innerHTML = value;
@@ -115,8 +181,16 @@ function displayRecipe(data) {
   listItem = document.createElement("li");
   listItem.innerHTML = recipeSource;
   RecipeIngredients.appendChild(listItem);
-}
 
-$("#recipe").on("click", function () {
-  getRecipeData();
-});
+  if (
+    recipeSource === null ||
+    recipeSource === undefined ||
+    recipeSource === ""
+  ) {
+    let recipeVideo = getVideo["strYoutube"];
+    listItem = document.createElement("li");
+    listItem.innerHTML = recipeVideo;
+    RecipeIngredients.appendChild(listItem);
+  }
+
+*/
