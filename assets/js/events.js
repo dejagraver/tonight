@@ -224,6 +224,9 @@ function openSavedList(event)
             displaySavedItem(eventRef); 
         }
     }
+    else{
+        savedListEl.html("No Saved Events");
+    }
 
     //Open the saved list modal
     $("#modal-list").addClass("active");
