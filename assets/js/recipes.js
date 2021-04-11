@@ -41,26 +41,31 @@ function getRecipeData() {
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
+  
+  var recipeContainer = document.createElement("div");
+  $(recipeContainer).addClass("recipe-container");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
   $(RecipeImg).addClass("inline-img");
   RecipeImg.src = Recipe.strMealThumb;
-  RecipeDiv.appendChild(RecipeImg);
+  recipeContainer.appendChild(RecipeImg);
 
   var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
-  RecipeDiv.appendChild(RecipeIngredients);
+  recipeContainer.appendChild(RecipeIngredients);
+
+  RecipeDiv.appendChild(recipeContainer);
 
   $("<label>")
     .addClass("form-checkbox")
     .html("<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe")
-    .appendTo(recipeListEl);
+    .appendTo(recipeContainer);
   $("<label>")
     .addClass("linebreak")
     .html("<hr style=width: 100%>")
-    .appendTo(recipeListEl);
+    .appendTo(recipeContainer);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
