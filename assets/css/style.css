@@ -1,9 +1,38 @@
 body {
-  font-family: Baskerville, "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
-    background-image: "./assets/images/tonight.jpg";
+  background-color: white;
 }
 
-.tonight-img
+.tonight-img {
+  background-image: url('../images/lights.jpg');
+  height: 500px; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+
+}
+
+.bg-title {
+ background-color: white;
+ opacity: 0.6;
+ border-radius: 0.5rem;
+ padding-top: 20px;
+ font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+}
+.btn {
+  opacity: 0.6;
+  border-radius: 0.5rem;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: oblique;
+}
+
+.saved {
+padding-top: 20px;
+}
+h2.card.text-center.py-2.mb-0 {
+  border-width: 1rem;
+
+}
 .col-8 {
   width: 80%;
   height: 40%;
@@ -11,6 +40,7 @@ body {
   margin-right: auto;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
+  background-color: white;
 }
 
 .card-tonight {
@@ -20,32 +50,21 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
-  flex-direction: column;
-}
+  flex-direction: column;}
 
 .card {
     background: inherit;
     border: none;
 }
 
+div.col-10 {
+  background-color: white;
+  border-radius: 0.5rem;
+}
 
 img {
   border-radius: .9rem;
-  padding: 20px;
-}
-
-.column.col-12 {
   padding: 30px;
-}
-
-h2.card.text-center {
-  background: #fff;
-  border: 1rem solid #dadee4;
-  border-radius: 0.1rem;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 
 .container {
@@ -55,24 +74,14 @@ width: 100%;
 }
 
 .col-10 {
-  padding: 30px;
+  padding: 30px;`
 }
 
-.col-10:hover {
-  padding: 30px;
-}
 
 .form-icon:hover {
   background: #5755d9;
 }
 
-/* .img-responsive {
-  transition: all .2s ease-in-out;
-}
-
-.img-responsive:hover {
-  transform: scale(1.1);
-} */
 
 #event-container:hover {
   transform: scale(1.1);
@@ -81,13 +90,11 @@ width: 100%;
 }
 
 #event-container {
-  transition: all .1s ease-in-out;
-  background-color: ivory;
+  transition: all .2s ease-in-out;
+  background-color: white;
+  box-shadow: #5755d9;
 }
 
-/* .docs-brand {
-
-} */
 
 img {
   height: 350px;
