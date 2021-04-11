@@ -140,27 +140,40 @@ function displayRecipe(data) {
   // listItem = document.createElement("li");
   // listItem.innerHTML = recipeSource;
   // RecipeIngredients.appendChild(listItem);
-  var link = $("<li>").appendTo(listItem);
-  $("<a>").text("Recipe Link!").attr("href", `${recipeSource}`).appendTo(link);
+  if (recipeSource) {
+    var link = $("<li>").appendTo(listItem);
+    $("<a>").text("Recipe Link").attr("href", `${recipeSource}`).appendTo(link);
+  }
 
   // console.log(RecipeIngredients);
-
-  if (
-    recipeSource === null ||
-    recipeSource === undefined ||
-    recipeSource === ""
-  ) {
-    let recipeVideo = getVideo["strYoutube"];
-    listItem = document.createElement("li");
-    listItem.innerHTML = recipeVideo;
-    RecipeIngredients.appendChild(listItem);
-  } else if (
-    recipeVideo === null ||
-    recipeVideo === undefined ||
-    recipeVideo === ""
-  ) {
-    RecipeIngredients.removeChild(listItem);
+  let recipeVideo = getVideo["strYoutube"];
+  if (recipeVideo) {
+    var videolink = $("<li>").appendTo(listItem);
+    $("<a>")
+      .text("Recipe YouTube Video")
+      .attr("href", `${recipeVideo}`)
+      .appendTo(videolink);
   }
+
+  // if (
+  //   recipeSource === null ||
+  //   recipeSource === undefined ||
+  //   recipeSource === ""
+  // ) {
+
+  //   // listItem = document.createElement("li");
+  //   // listItem.innerHTML = recipeVideo;
+  //   // RecipeIngredients.appendChild(listItem);
+  //   var videolink = $("<li>").appendTo(listItem);
+  //   $("<a>")
+  //     .text("Recipe YouTube Video")
+  //     .attr("href", `${recipeVideo}`)
+  //     .appendTo(videolink);
+  // } else if (
+  //   recipeVideo
+  // ) {
+  //   RecipeIngredients.removeChild(listItem);
+  // }
 }
 
 $("#recipe").on("click", function () {
