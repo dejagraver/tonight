@@ -45,13 +45,9 @@ h2 {
 }
 
 .bg-title {
-  text-align: center;
  color: orange;
  font-style:italic;
- font-weight:lighter;
- font-family: fantasy;
  opacity: 0.6;
- border-radius: 0.5rem;
  padding-top: 20px;
  font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 }
@@ -87,6 +83,7 @@ div.card-title.h5 {
 		animation: textclip 1.5s linear infinite;
 		display: inline-block;
 }
+
 .saved {
 padding-top: 20px;
 }
@@ -122,19 +119,22 @@ img {
 }
 
 
-
-
 .form-icon:hover {
   background: orange;
+}
+
+.form-icon::after {
+  color: yellow;
 }
 
 a {
   color: orange;
   text-decoration: none;
-  
 }
 
+a.modal-overlay {
 
+}
 
 .col-10 {
   background-image: url ('../images/lights,jpeg');
