@@ -123,7 +123,7 @@ function displaySingleEvent(event)
     $("<img>").attr("src",imgSource).addClass("img-responsive").appendTo(imageLinkRef);
 
     $("<div>").addClass("card-title h5").text(eventData["name"]).appendTo(bodyBoxEl);
-    $("<label>").addClass("form-checkbox").html("<input type='checkbox'><i class='form-icon'></i> Save event for later").appendTo(bodyBoxEl);
+    $("<label>").addClass("form-checkbox").html("<input class='event-checkbox' type='checkbox'><i class='form-icon'></i> Save event for later").appendTo(bodyBoxEl);
     $("<div>").addClass("card-subtitle text-gray").text(eventData["date"]).appendTo(bodyBoxEl);
     $("<p>").text("Start Time: " + eventData["time"]).appendTo(bodyBoxEl);
 
@@ -298,7 +298,7 @@ $("#show-saved-list").on("click", openSavedList)
 $("#events").on("click", fetchEventData);
 
 //Change save status when clicking the checkboxes
-$(eventListGroupEl).on("change", "input", toggleEventSave);
+$(eventListGroupEl).on("change", ".event-checkbox", toggleEventSave);
 
 //Closes the modal when the x or close button are clicked
 $(".modal-close, #close-modal-btn").on("click", closeModal);
