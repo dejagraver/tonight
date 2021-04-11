@@ -14,6 +14,7 @@ var savedListEl = $("#saved-list-content");
 
 //Initialize an event container for saving/loading
 var savedEvents = [];
+var savedRecipes = [];
 
 //Initialize and provide a default value for the user's latitude and logitude in case we cannot take their location
 var userLat = 43.653226;
@@ -163,6 +164,25 @@ function createEventObject(event) {
   return eventData;
 }
 
+function createRecipeObject() {
+  var recipeData = {
+    name: recipe.strMeal,
+    category: recipe.strCategory,
+    url: strSource
+  };
+
+  return eventData;
+}
+
+//Provide an event to save into the user's saved list
+function saveEvent(eventData) {
+  savedEvents.push(eventData);
+}
+
+function saveRecipe(recipeData) {
+  savedRecipes.push(recipeData);
+}
+
 //Return a 4 by 3 image from an image array
 function get4by3Image(imageArray) {
   //runs through and array of images
@@ -175,11 +195,6 @@ function get4by3Image(imageArray) {
 
   //If none are found return a placeholder
   return "http://placehold.it/150";
-}
-
-//Provide an event to save into the user's saved list
-function saveEvent(eventData) {
-  savedEvents.push(eventData);
 }
 
 //Called when an event checkbox is changed (clicked to on or off)
