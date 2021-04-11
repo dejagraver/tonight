@@ -316,7 +316,7 @@ $("#show-saved-list").on("click", openSavedList);
 $("#events").on("click", fetchEventData);
 
 //Change save status when clicking the checkboxes
-$(eventListGroupEl).on("change", "input", toggleEventSave);
+$(eventListGroupEl).on("change", ".event-checkbox", toggleEventSave);
 
 //Closes the modal when the x or close button are clicked
 $(".modal-close, #close-modal-btn").on("click", closeModal);

@@ -72,11 +72,15 @@ div.card-title.h5 {
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 1.5s linear infinite;
   display: inline-block;
+}
+
+img.img-repsonsive {
+  width: 132px;
+  height: 113px;
 }
 
 .saved {
@@ -124,10 +128,6 @@ img {
 a {
   color: orange;
   text-decoration: none;
-}
-
-a.modal-overlay {
-
 }
 
 .col-10 {
