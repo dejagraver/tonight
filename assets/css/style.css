@@ -1,13 +1,13 @@
 body {
-  font-family: Baskerville, "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
-    background-image: "./assets/images/tonight.jpg";
+  font-family: Baskerville, "Baskerville Old Face", "Goudy Old Style", Garamond,
+    "Times New Roman", serif;
+  background-image: "./assets/images/tonight.jpg";
 }
 
 p {
 }
 
-tonight-img
-.col-8 {
+tonight-img .col-8 {
   width: 80%;
   height: 40%;
   margin-left: auto;
@@ -27,13 +27,12 @@ tonight-img
 }
 
 .card {
-    background: inherit;
-    border: none;
+  background: inherit;
+  border: none;
 }
 
-
 img {
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   padding: 20px;
 }
 
@@ -53,8 +52,8 @@ h2.card.text-center {
 
 .container {
   padding-left: 2rem;
-padding-right: 2rem;
-width: 100%;
+  padding-right: 2rem;
+  width: 100%;
 }
 
 .col-10 {
@@ -84,20 +83,28 @@ width: 100%;
 }
 
 #event-container {
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: ivory;
 }
 
 .docs-brand {
-
 }
 
 img {
   height: 350px;
-  width: 350px;;
+  width: 350px;
 }
 
 /* event custom styles */
 .border-black {
   border-top: 2px gray solid;
+}
+
+.inline-image {
+  display: inline-block;
+}
+
+.inline-ul {
+  display: inline-block;
+  vertical-align: top;
 }
