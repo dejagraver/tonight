@@ -1,15 +1,14 @@
 body {
   background-color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .tonight-img {
-  background-image: url('../images/lights.jpg');
-  height: 500px; 
+  background-image: url("../images/lights.jpg");
+  height: 500px;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 h1 {
@@ -18,14 +17,12 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size:120px;
-	letter-spacing:0.1em;
+  font-size: 120px;
+  letter-spacing: 0.1em;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: white;
-  text-shadow: 
-						8px 8px #ff8b1f,
-						20px 20px #e7a962;
+  text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
 }
 
 h2 {
@@ -34,26 +31,24 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size:70px;
-	letter-spacing:0.1em;
+  font-size: 70px;
+  letter-spacing: 0.1em;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: white;
-  text-shadow: 
-						8px 8px #ff8b1f,
-						20px 20px #e7a962;
+  text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
 }
 
 .bg-title {
   text-align: center;
- color: orange;
- font-style:italic;
- font-weight:lighter;
- font-family: fantasy;
- opacity: 0.6;
- border-radius: 0.5rem;
- padding-top: 20px;
- font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+  color: orange;
+  font-style: italic;
+  font-weight: lighter;
+  font-family: fantasy;
+  opacity: 0.6;
+  border-radius: 0.5rem;
+  padding-top: 20px;
+  font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 .btn {
@@ -64,38 +59,37 @@ h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: oblique;
   color: orange;
-  border:orange;
+  border: orange;
   box-shadow: #ff8b1f;
 }
 
 div.card-title.h5 {
   color: #fff;
-		font-size: 20px;
-		font-family: "ubuntu";
-		text-transform: uppercase;
-		font-weight: 700;
-		font-family: "Josefin Sans", sans-serif;
-		background: linear-gradient(to right,#ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
-		background-size: auto auto;
-		background-clip: border-box;
-		background-size: 200% auto;
-		color: #fff;
-		background-clip: text;
-		text-fill-color: transparent;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: textclip 1.5s linear infinite;
-		display: inline-block;
+  font-size: 20px;
+  font-family: "ubuntu";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(to right, #ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 1.5s linear infinite;
+  display: inline-block;
 }
 .saved {
-padding-top: 20px;
+  padding-top: 20px;
 }
 
 h2.card.text-center.py-2.mb-0 {
   border-width: 1rem;
   color: orange;
 }
-
 
 .card-tonight {
   background: #fff;
@@ -104,11 +98,12 @@ h2.card.text-center.py-2.mb-0 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
-  flex-direction: column;}
+  flex-direction: column;
+}
 
 .card {
-    background: inherit;
-    border: none;
+  background: inherit;
+  border: none;
 }
 
 div.col-10 {
@@ -117,12 +112,9 @@ div.col-10 {
 }
 
 img {
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   padding: 30px;
 }
-
-
-
 
 .form-icon:hover {
   background: orange;
@@ -131,18 +123,15 @@ img {
 a {
   color: orange;
   text-decoration: none;
-  
 }
 
-
-
 .col-10 {
-  background-image: url ('../images/lights,jpeg');
+  background-image: url ("../images/lights,jpeg");
 }
 
 #event-container {
-  visibility:visible;
-  transition: all .2s ease-in-out;
+  visibility: visible;
+  transition: all 0.2s ease-in-out;
   background-color: white;
   box-shadow: orange;
   border-radius: 1rem;
@@ -156,29 +145,34 @@ a {
 
 img {
   height: 350px;
-  width: 350px;;
+  width: 350px;
 }
 
 @media screen and (max-width: 768px) {
-    
   .bg-title .btn {
-      display: table-header-group;
+    display: table-header-group;
   }
 
   .tonight-img {
-      flex: 0 32%;
-      margin-right: 0;
-      margin-top: 15px;
-      margin-bottom: 15px;
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
- 
   .bg-title .btn {
     display: table-header-group;
-}
+  }
 }
 
+.inline-image {
+  display: inline-block;
+}
 
+.inline-ul {
+  display: inline-block;
+  vertical-align: top;
+}
