@@ -53,7 +53,7 @@ function displayRecipe(data) {
 
   $("<label>")
     .addClass("form-checkbox")
-    .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
+    .html("<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe")
     .appendTo(recipeListEl);
   $("<label>")
     .addClass("linebreak")

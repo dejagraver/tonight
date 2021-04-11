@@ -374,6 +374,64 @@ function displaySavedItem(eventRef)
   eventBoxEl.appendTo(savedListEl);
 }
 
+function displaySavedRecipe(recipeRef) 
+{
+  var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
+  var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+  var buttonBoxEl = $("<div>")
+    .addClass("col-auto col-ml-auto")
+    .appendTo(columnBoxEl);
+
+  // $("<p>")
+  //   .addClass("m-0 p-2")
+  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
+  //   .appendTo(bodyBoxEl);
+
+  // var webpageLinkEl = $("<a>")
+  //   .attr({ href: eventRef.url, target: "_blank" })
+  //   .appendTo(buttonBoxEl);
+  // $("<button>")
+  //   .addClass("btn btn-primary mx-2")
+  //   .text("Webpage")
+  //   .appendTo(webpageLinkEl);
+  // $("<button>")
+  //   .addClass("btn mx-2 remove-btn")
+  //   .text("Remove")
+  //   .appendTo(buttonBoxEl);
+
+  eventBoxEl.appendTo(savedListEl);
+}
+
+function displaySavedMovie(movieRef) 
+{
+  var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
+  var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
+  var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
+  var buttonBoxEl = $("<div>")
+    .addClass("col-auto col-ml-auto")
+    .appendTo(columnBoxEl);
+
+  // $("<p>")
+  //   .addClass("m-0 p-2")
+  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
+  //   .appendTo(bodyBoxEl);
+
+  // var webpageLinkEl = $("<a>")
+  //   .attr({ href: eventRef.url, target: "_blank" })
+  //   .appendTo(buttonBoxEl);
+  // $("<button>")
+  //   .addClass("btn btn-primary mx-2")
+  //   .text("Webpage")
+  //   .appendTo(webpageLinkEl);
+  // $("<button>")
+  //   .addClass("btn mx-2 remove-btn")
+  //   .text("Remove")
+  //   .appendTo(buttonBoxEl);
+
+  eventBoxEl.appendTo(savedListEl);
+}
+
 function removeSavedItem(event) {
   //Get the index of the event that was clicked to remove
   var itemIndex = $(this).closest(".saved-item-box").index();
