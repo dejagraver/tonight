@@ -1,6 +1,109 @@
+<<<<<<< HEAD
 body {
   background-color: white;
   font-family: "Montserrat", sans-serif;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/* main html css */
+[class~="col-"].col-12,
+[class~="col-"].col-11,
+[class~="col-"].col-10,
+[class~="col-"].col-9,
+[class~="col-"].col-8,
+[class~="col-"].col-7,
+[class~="col-"].col-6,
+[class~="col-"].col-5,
+[class~="col-"].col-4,
+[class~="col-"].col-3,
+[class~="col-"].col-2,
+[class~="col-"].col-1,
+[class~="col-"].col-auto,
+.column.col-12,
+.column.col-11,
+.column.col-10,
+.column.col-9,
+.column.col-8,
+.column.col-7,
+.column.col-6,
+.column.col-5,
+.column.col-4,
+.column.col-3,
+.column.col-2,
+.column.col-1,
+.column.col-auto {
+  -ms-flex: none;
+  flex: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
+.col-8 {
+  width: 80%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+.checkbox-wrapper input,
+.radio-wrapper input {
+  opacity: 0;
+}
+
+.checkbox-wrapper label,
+.radio-wrapper label {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+}
+
+.checkbox-wrapper label::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #024e76;
+  position: absolute;
+  top: -4px;
+  left: 650px;
+}
+
+.radio-wrapper label::before {
+  border-radius: 50%;
+}
+
+.radio-wrapper label::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #024e76;
+  position: absolute;
+  left: -29px;
+  top: -3px;
+  background-image: radial-gradient(circle, #39a6b2, #024e76);
+}
+
+.checkbox-wrapper label::after {
+  content: "";
+  height: 6px;
+  width: 14px;
+  border-left: 2px solid #024e76;
+  border-bottom: 2px solid #024e76;
+  position: absolute;
+  top: 1px;
+  transform: rotate(-58deg);
+  left: 655.5px;
+>>>>>>> cd94e6812c8125b793f182b40420fed08df484e4
 }
 
 .tonight-img {
@@ -99,6 +202,7 @@ h2.card.text-center.py-2.mb-0 {
 }
 
 .card {
+<<<<<<< HEAD
   background: inherit;
   border: none;
 }
@@ -106,6 +210,21 @@ h2.card.text-center.py-2.mb-0 {
 div.col-10 {
   background-color: white;
   border-radius: 0.5rem;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    background: inherit;
+    border: none;
+=======
+  background: inherit;
+  border: none;
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
+}
+
+img {
+  border-radius: 0.9rem;
+  padding: 20px;
+>>>>>>> cd94e6812c8125b793f182b40420fed08df484e4
 }
 
 img {
@@ -113,12 +232,38 @@ img {
   padding: 30px;
 }
 
+<<<<<<< HEAD
 .form-icon:hover {
   background: orange;
 }
 
 .form-icon::after {
   color: yellow;
+=======
+h2.card.text-center {
+<<<<<<< HEAD
+=======
+  background: #fff;
+  border: 1rem solid #dadee4;
+  border-radius: 0.1rem;
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+>>>>>>> cd94e6812c8125b793f182b40420fed08df484e4
 }
 
 a {
@@ -148,6 +293,7 @@ a.modal-overlay {
   box-shadow: 5px 5px 8px orange;
 }
 
+<<<<<<< HEAD
 img {
   height: 350px;
   width: 350px;
@@ -175,9 +321,33 @@ img {
 
 .inline-image {
   display: inline-block;
+=======
+div.container {
+  transition: all 0.2s ease-in-out;
+  background-color: ivory;
+}
+
+.docs-brand {
+}
+
+img {
+  height: 350px;
+<<<<<<< HEAD
+  width: 350px;;
+}
+=======
+>>>>>>> cd94e6812c8125b793f182b40420fed08df484e4
 }
 
 .inline-ul {
   display: inline-block;
   vertical-align: top;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> 7a3337acf6f7047de5fb47b92448cd67b41dd157
+=======
+  width: 350px;
+}
+>>>>>>> c2fbda37aefe3f630c6aa11cfd1b34661b7639ce
+>>>>>>> cd94e6812c8125b793f182b40420fed08df484e4
