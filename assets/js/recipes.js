@@ -171,9 +171,7 @@ $("#recipe").on("click", function () {
 // console.log(savedRecipe);
 
 // function createRecipeObject(data) {
-//   var recipeData = {
-//     recipeData = Recipe
-//   };
+//   var recipeData = {};
 
-//   return recipeData;
+//   return data;
 // }
