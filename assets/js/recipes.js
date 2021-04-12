@@ -1,13 +1,6 @@
 var recipeListEl = document.getElementById("event-list-group");
 var savedItemsEl = document.getElementById("#saved-list-content");
 
-//Global Storage Array
-// var savedList = {
-//   movies: [],
-//   events: [],
-//   recipes: [],
-// };
-
 function getRecipeData() {
   savedRecipes = [];
   let times = 20;
@@ -37,31 +30,35 @@ function getRecipeData() {
 }
 
 //display random recipes in an array
-
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
   
   var recipeContainer = document.createElement("div");
-  $(recipeContainer).addClass("recipe-container");
+  $(recipeContainer).addClass("recipe-container columns");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
-  $(RecipeImg).addClass("inline-img");
+  $(RecipeImg).addClass("inline-img col-auto");
   RecipeImg.src = Recipe.strMealThumb;
   recipeContainer.appendChild(RecipeImg);
 
+  var contentDiv = document.createElement("div");
+  $(contentDiv).addClass("col-auto");
+
   var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
-  recipeContainer.appendChild(RecipeIngredients);
+  contentDiv.appendChild(RecipeIngredients);
+
+  recipeContainer.appendChild(contentDiv);
 
   RecipeDiv.appendChild(recipeContainer);
 
   $("<label>")
     .addClass("form-checkbox")
     .html("<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe")
-    .appendTo(recipeContainer);
+    .appendTo(contentDiv);
 
 
   var getIngredients = Object.keys(Recipe)
