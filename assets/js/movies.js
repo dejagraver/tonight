@@ -34,4 +34,27 @@ function showMovies(url){
 });
 }
 
-movieBtn.addEventListener('click', () => showMovies(apiUrl))
+// movieBtn.addEventListener('click', () => showMovies(apiUrl))
+
+// const savedListBtn = document.querySelector("#show-saved-list")
+// const searchList = document.getElementById("search");
+// const data = JSON.parse(localStorage.getItem("savedList"))
+// const events = data.events
+
+// const filtered = events.filter(i => i !== null) //filter items in the array that are null
+
+// savedListBtn.addEventListener("click", () => {
+//    filtered.forEach(event => {
+//     let output = `
+//         <div>
+//             <div class="movie-info">
+//                 <p> Title: ${event?.name}</p>
+//                 <p> Release date: ${event?.date}</p>
+//                 <p> Rating: ${event?.time} <p>
+//                 <p> Description: ${event?.url}</p>
+//             </div>
+//         </div>
+//     `;
+//     search.innerHTML += output
+//    })
+// })

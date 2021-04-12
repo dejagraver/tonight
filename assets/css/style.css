@@ -56,7 +56,12 @@ h2 {
   font-style: oblique;
   color: orange;
   border: orange;
-  box-shadow: #ff8b1f;
+  text-shadow: orange;
+}
+
+.btn:hover {
+  text-shadow: orange;
+  box-shadow: orangered;
 }
 
 div.card-title.h5 {
@@ -166,11 +171,19 @@ img {
   }
 }
 
+.modal.modal-lg {
+  background-image: url('../images/toronto.jpg');
+}
+
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
   .bg-title .btn {
     display: table-header-group;
   }
+}
+
+.h1 .h2 {
+  font-size: 2em;
 }
 
 .inline-image {

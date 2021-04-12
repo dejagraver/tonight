@@ -19,7 +19,7 @@ function getRecipeData() {
         }
       })
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
         arr.push(data.meals[0]); //push data into array
         displayRecipe(data); //display the recipe 20 times
       })
@@ -37,32 +37,31 @@ function getRecipeData() {
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
-  var recipeBox = $("<div>")
-    .addClass("container border-black bg-gray my-2")
-    .attr("id", "recipe-container")
-    .appendTo(RecipeDiv);
-  // recipeBox.append(RecipeImg).append(RecipeIngredients);
+
+  var recipeContainer = document.createElement("div");
+  $(recipeContainer).addClass("recipe-container");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.src = Recipe.strMealThumb;
-  $(RecipeImg).addClass("inline-img");
-  // RecipeDiv.appendChild(RecipeImg);
-  $(RecipeImg).appendTo(recipeBox);
+  recipeContainer.appendChild(RecipeImg);
 
   var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
-  // RecipeDiv.appendChild(RecipeIngredients);
-  $(RecipeIngredients).appendTo(recipeBox);
+  recipeContainer.appendChild(RecipeIngredients);
+
+  RecipeDiv.appendChild(recipeContainer);
 
   $("<label>")
     .addClass("form-checkbox")
-    .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
-    .appendTo(recipeBox);
+    .html(
+      "<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe"
+    )
+    .appendTo(recipeContainer);
   $("<label>")
     .addClass("linebreak")
     .html("<hr style=width: 100%>")
-    .appendTo(recipeBox);
+    .appendTo(recipeContainer);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
@@ -165,24 +164,23 @@ $("#recipe").on("click", function () {
   getRecipeData();
 });
 
-// function saveListToStorage() {
-//   localStorage.setItem("savedList", JSON.stringify(savedList));
-// }
+var savedRecipe = ["Test", "Test 2"];
 
-// //Load the global list from local storage and set it
-// function loadListFromStorage() {
-//   var storageList = JSON.parse(localStorage.getItem("savedList"));
+function saveRecipeToStorage() {
+  localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
+  console.log("saved");
+}
+function loadRecipeFromStorage() {
+  var recipeList = JSON.parse(localStorage.getItem("savedRecipe"));
 
-//   if (storageList) {
-//     savedList = storageList;
-//   }
-// }
+  if (recipeList) {
+    savedRecipe = recipeList;
+  }
+}
+console.log(savedRecipe);
 
-// function createRecipeObject(recipe) {
-//   var recipeObject = {
-//     name: recipe.strMeal,
-//     category: recipe.strCategory,
-//     url: recipe.strSource,
-//   };
-//   return recipeObject;
-// }
+function createRecipeObject(data) {
+  var recipeData = {};
+
+  return data;
+}

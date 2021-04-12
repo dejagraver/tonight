@@ -11,6 +11,8 @@ var savedList = {
 //Initialize a variable for the main event search list and saved event list
 var eventListGroupEl = $("#event-list-group");
 var savedListEl = $("#saved-list-content");
+var savedRecipeEl = $("#saved-list-recipes");
+var savedMovieEl = $("#saved-list-movies");
 
 //Initialize an event container for saving/loading
 var savedEvents = [];
@@ -240,7 +242,8 @@ function toggleEventSave(event) {
 function toggleRecipeSave(event) {
   console.log("recipe clicked");
   //Initialize the index of the event that was clicked
-  var recipeIndex = $(this).closest("#recipe-container").index();
+  var recipeIndex = $(this).closest(".recipe-container").index();
+  console.log(recipeIndex);
 
   //If the box is checked, then save the event otherwise remove event from saved list
   if (event.target.checked) {
@@ -305,19 +308,24 @@ function closeModal(event) {
 //Opens the saved list with the users stored items
 function openSavedList(event) {
   savedListEl.html("");
+  savedRecipeEl.html("");
 
   if (savedList.events.length > 0) {
     for (var i = 0; i < savedList.events.length; i++) {
       var eventRef = savedList.events[i];
       displaySavedItem(eventRef);
     }
+  } else {
+    savedListEl.html("No Saved Events");
   }
 
   if (savedList.recipes.length > 0) {
     for (var i = 0; i < savedList.recipes.length; i++) {
       var recipeRef = savedList.recipes[i];
-      //displaySavedItem(recipeRef);
+      displaySavedRecipe(recipeRef);
     }
+  } else {
+    savedRecipeEl.html("No Saved Recipes");
   }
 
   if (savedList.movies.length > 0) {
@@ -327,7 +335,7 @@ function openSavedList(event) {
     }
   }
 
-  if (!savedList.events && !savedList.recipes && !savedList.movies) {
+  if (savedList.events.length === 0) {
     savedListEl.html("No Saved Events");
   }
 
@@ -376,24 +384,30 @@ function displaySavedRecipe(recipeRef) {
     .addClass("col-auto col-ml-auto")
     .appendTo(columnBoxEl);
 
-  // $("<p>")
-  //   .addClass("m-0 p-2")
-  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
-  //   .appendTo(bodyBoxEl);
+  $("<p>")
+    .addClass("m-0 p-2")
+    .text(
+      recipeRef.strMeal +
+        " - " +
+        recipeRef.strArea +
+        " - " +
+        recipeRef.strCategory
+    )
+    .appendTo(bodyBoxEl);
 
-  // var webpageLinkEl = $("<a>")
-  //   .attr({ href: eventRef.url, target: "_blank" })
-  //   .appendTo(buttonBoxEl);
-  // $("<button>")
-  //   .addClass("btn btn-primary mx-2")
-  //   .text("Webpage")
-  //   .appendTo(webpageLinkEl);
-  // $("<button>")
-  //   .addClass("btn mx-2 remove-btn")
-  //   .text("Remove")
-  //   .appendTo(buttonBoxEl);
+  var webpageLinkEl = $("<a>")
+    .attr({ href: recipeRef.strSource, target: "_blank" })
+    .appendTo(buttonBoxEl);
+  $("<button>")
+    .addClass("btn btn-primary mx-2")
+    .text("Webpage")
+    .appendTo(webpageLinkEl);
+  $("<button>")
+    .addClass("btn mx-2 remove-btn")
+    .text("Remove")
+    .appendTo(buttonBoxEl);
 
-  eventBoxEl.appendTo(savedListEl);
+  eventBoxEl.appendTo(savedRecipeEl);
 }
 
 function displaySavedMovie(movieRef) {
@@ -434,13 +448,35 @@ function removeSavedItem(event) {
   savedList.events.splice(itemIndex, 1);
 
   if (savedList.events.length === 0) {
-    savedListEl.html("No saved events");
+    savedListEl.html("No Saved Events");
   } else {
     savedListEl.html("");
 
     for (var i = 0; i < savedList.events.length; i++) {
       var eventRef = savedList.events[i];
       displaySavedItem(eventRef);
+    }
+  }
+
+  //Save the list to storage after it has been removed
+  saveListToStorage();
+}
+
+function removeSavedRecipe(event) {
+  //Get the index of the event that was clicked to remove
+  var itemIndex = $(this).closest(".saved-item-box").index();
+
+  //Remove the item from saved list
+  savedList.recipes.splice(itemIndex, 1);
+
+  if (savedList.recipes.length === 0) {
+    savedRecipeEl.html("No Saved Recipes");
+  } else {
+    savedRecipeEl.html("");
+
+    for (var i = 0; i < savedList.recipes.length; i++) {
+      var eventRef = savedList.recipes[i];
+      displaySavedRecipe(eventRef);
     }
   }
 
@@ -479,10 +515,12 @@ $(eventListGroupEl).on("change", ".movie-checkbox", toggleMovieSave);
 $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 $(savedListEl).on("click", ".remove-btn", removeSavedItem);
+$(savedRecipeEl).on("click", ".remove-btn", removeSavedRecipe);
+//$(savedMovieEl).on("click", ".remove-btn", removeSavedMovie);
 
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-//getLocation();
 
+//getLocation();
 loadListFromStorage();
