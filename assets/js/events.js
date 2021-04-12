@@ -179,9 +179,12 @@ function createRecipeObject() {
   return recipeData;
 }
 
-function createMovieObject() {
+function createMovieObject(movieData) {
+
   var movieData = {
-    //enter movies values here
+    name: movieData.title,
+    release: movieData.release_date,
+    rating: movieData.vote_average
   };
 
   return movieData;
@@ -198,7 +201,7 @@ function saveRecipe(recipeData)
   savedRecipes.push(recipeData);
 }
 
-function saveRecipe(movieData) 
+function saveMovie(movieData) 
 {
   savedMovies.push(movieData);
 }

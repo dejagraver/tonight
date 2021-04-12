@@ -11,11 +11,12 @@ const movieBtn = document.getElementById("movie")
 function showMovies(url){
     fetch(url).then(res => res.json())
     .then(function(data){
-        search.innerHTML = ""
+        search.innerHTML = "";
+        console.log(data);
+        savedMovies = [];
     data.results.forEach((element, index) => {
-        var eventData = createMoviesObject(element)
-        saveEvent(eventData)
-        console.log(eventData)
+        var eventData = createMovieObject(element);
+        saveMovie(eventData);
         let output = `
             <div>
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
@@ -33,6 +34,7 @@ function showMovies(url){
         `;
         search.innerHTML += output
     }); 
+    console.log(savedMovies);
 });
 }
 
