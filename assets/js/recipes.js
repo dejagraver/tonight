@@ -9,6 +9,7 @@ var savedItemsEl = document.getElementById("#saved-list-content");
 // };
 
 function getRecipeData() {
+  savedRecipes = [];
   let times = 20;
   let arr = [];
   for (let i = 0; i < times; i++) {
@@ -22,7 +23,7 @@ function getRecipeData() {
         }
       })
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
         arr.push(data.meals[0]); //push data into array
         displayRecipe(data); //display the recipe 20 times
       })
@@ -31,6 +32,7 @@ function getRecipeData() {
       });
   } //once loop is done
   console.log(arr);
+  savedRecipes = arr;
   recipeListEl.innerHTML = "";
 }
 
@@ -39,26 +41,31 @@ function getRecipeData() {
 function displayRecipe(data) {
   var Recipe = data.meals[0];
   var RecipeDiv = document.getElementById("event-list-group");
+  
+  var recipeContainer = document.createElement("div");
+  $(recipeContainer).addClass("recipe-container");
 
   var RecipeImg = document.createElement("img");
   RecipeImg.id = "::img";
   RecipeImg.style.cssText = "width:300px;height:300px;";
   $(RecipeImg).addClass("inline-img");
   RecipeImg.src = Recipe.strMealThumb;
-  RecipeDiv.appendChild(RecipeImg);
+  recipeContainer.appendChild(RecipeImg);
 
   var RecipeIngredients = document.createElement("ul");
   $(RecipeIngredients).addClass("inline-ul");
-  RecipeDiv.appendChild(RecipeIngredients);
+  recipeContainer.appendChild(RecipeIngredients);
+
+  RecipeDiv.appendChild(recipeContainer);
 
   $("<label>")
     .addClass("form-checkbox")
-    .html("<input type='checkbox'><i class='form-icon'></i> Add Recipe")
-    .appendTo(recipeListEl);
+    .html("<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe")
+    .appendTo(recipeContainer);
   $("<label>")
     .addClass("linebreak")
     .html("<hr style=width: 100%>")
-    .appendTo(recipeListEl);
+    .appendTo(recipeContainer);
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
