@@ -553,5 +553,5 @@ $(savedMovieEl).on("click", ".remove-btn", removeSavedMovie);
 
 //Call get location at the start of the program so that we can use the user's geographic location
 
-//getLocation();
-//loadListFromStorage();
+getLocation();
+loadListFromStorage();
