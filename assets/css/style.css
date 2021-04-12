@@ -170,7 +170,7 @@ img {
   width: 350px;
 }
 
-a.modal-overlay {
+/* a.modal-overlay {
 
 }
 
@@ -262,6 +262,9 @@ div#saved-list-recipes.content {
   display: inline-block;
 }
 
+div.recipe-container {
+  max-height: 250px;
+} */
 
 
 @media screen and (max-width: 768px) {
