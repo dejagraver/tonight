@@ -27,4 +27,4 @@ https://dejagraver.github.io/tonight/
 ![Website Screenshot](./assets/images/webpage.png)
 
 ## Contribution
-Created exclusively by Sean Brent, Deja Graver, Rani Saad, and Shane MacDonald
+Created exclusively by Sean Brent, Déjà Martin, Rani Saad, and Shane MacDonald
