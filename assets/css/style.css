@@ -135,18 +135,7 @@ a {
   background-image: url ("../images/lights,jpeg");
 }
 
-.recipe-container {
-  transition: all 0.2s ease-in-out;
-  background-color: white;
-  box-shadow: orange;
-  border-radius: 1rem;
-}
-.recipe-container:hover {
-  transform: scale(1.1);
-  border: 1rem;
-  box-shadow: 5px 5px 8px orange;
-  border-bottom: none;
-}
+
 
 label.form-checkbox {
 padding-left: 40px;
@@ -163,6 +152,33 @@ padding-left: 40px;
   transform: scale(1.1);
   border: 1rem;
   box-shadow: 5px 5px 8px orange;
+}
+
+.recipe-container {
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: orange;
+  border-radius: 1rem;
+}
+.recipe-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+  border-bottom: none;
+}
+
+div.movie-info {
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: orange;
+  border-radius: 1rem;
+}
+
+div.movie-info:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+  border-bottom: none;
 }
 
 img {
@@ -205,7 +221,7 @@ div.modal-title.h5 {
 p.m-0.p-2 {
   color: #fab025;
   font-style: oblique;
-  font-size: 2.2vh;
+  font-size: 1.5vh;
 }
 
 
@@ -217,7 +233,9 @@ button#close-modal-btn.btn.btn-primary {
   background-color: orange;
 }
 
-
+#description{
+  width: 500px;
+}
 
 @media screen and (max-width: 768px) {
   .bg-title .btn {
