@@ -1,183 +1,265 @@
 body {
-    background-color: white;
-    font-family: "Montserrat", sans-serif;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tonight-img {
+  background-image: url("../images/lights.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  position: relative;
+  padding-top: 110px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
+}
+
+h2 {
+  position: relative;
+  padding-top: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
+}
+
+.bg-title {
+ color: orange;
+ font-style:italic;
+ opacity: 0.6;
+ padding-top: 20px;
+ font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.btn {
+  opacity: 0.6;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: oblique;
+  color: orange;
+  border: orange;
+  text-shadow: orange;
+}
+
+.btn:hover {
+  text-shadow: orange;
+  box-shadow: orangered;
+}
+
+div.card-title.h5 {
+  color: #fff;
+  font-size: 20px;
+  font-family: "ubuntu";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(to right, #ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 1.5s linear infinite;
+  display: inline-block;
+}
+
+img.img-repsonsive {
+  width: 132px;
+  height: 113px;
+}
+
+.saved {
+  padding-top: 20px;
+}
+
+h2.card.text-center.py-2.mb-0 {
+  border-width: 1rem;
+  color: orange;
+}
+
+.card-tonight {
+  background: #fff;
+  border: 1rem solid #dadee4;
+  border-radius: 0.1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card {
+  background: inherit;
+  border: none;
+}
+
+div.col-10 {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+img {
+  border-radius: 0.9rem;
+  padding: 30px;
+}
+
+.form-icon:hover {
+  background: orange;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+.col-10 {
+  background-image: url ("../images/lights,jpeg");
+}
+
+.recipe-container {
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: orange;
+  border-radius: 1rem;
+}
+.recipe-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+  border-bottom: none;
+}
+
+label.form-checkbox {
+padding-left: 40px;
+}
+
+#event-container {
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: orange;
+  border-radius: 1rem;
+}
+
+#event-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+}
+
+img {
+  height: 350px;
+  width: 350px;
+}
+
+div.modal-body { 
+  color: #333; 
+  font-family: 'Muli', sans-serif; 
+  margin-bottom: 15px; 
+}
+
+div.modal-title.h5 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background-image: radial-gradient(
+    ellipse 50% 35% at 50% 50%,
+    #fab025,
+    transparent
+  );
+  transform: translate(-50%, -50%);
+  letter-spacing: 2;
+  left: 50%;
+  top: 50%;
+  font-family: "Clip";
+  text-transform: uppercase;
+  font-size: 4em;
+  color: #ffe6ff;
+  text-shadow: 0 0 0.6rem #ff941b, 0 0 1.5rem #ffa620,
+    -0.2rem 0.1rem 1rem #ff9665, 0.2rem 0.1rem 1rem #ffdb65,
+    0 -0.5rem 2rem #ff8e24, 0 0.5rem 3rem #ffa024;
+  animation: shine 2s forwards, flicker 3s infinite;
+}
+
+p.m-0.p-2 {
+  color: #fab025;
+  font-style: oblique;
+  font-size: 2.2vh;
+}
+
+
+button.btn.btn-primary.mx-2 {
+  background-color: orange;
+}
+
+button#close-modal-btn.btn.btn-primary {
+  background-color: orange;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .bg-title .btn {
+    display: table-header-group;
   }
-  
+
   .tonight-img {
-    background-image: url("../images/lights.jpg");
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
-  
-  h1 {
-    position: relative;
-    padding-top: 110px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 120px;
-    letter-spacing: 0.1em;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: white;
-    text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
+}
+
+.modal.modal-lg {
+  background-image: url('../images/toronto.jpg');
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  .bg-title .btn {
+    display: table-header-group;
   }
+}
+
+.h1 .h2 {
+  font-size: 2em;
+}
+
+.inline-image {
+  display: inline-block;
+}
+
+.inline-ul {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media screen and (max-width: 1400px) {
+
+  .h1 .h2 {
+    font-size: none;
+  }  
   
-  h2 {
-    position: relative;
-    padding-top: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 70px;
-    letter-spacing: 0.1em;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: white;
-    text-shadow: 8px 8px #ff8b1f, 20px 20px #e7a962;
-  }
-  
-  .bg-title {
-   color: orange;
-   font-style:italic;
-   opacity: 0.6;
-   padding-top: 20px;
-   font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
-  }
-  
-  .btn {
-    opacity: 0.6;
-    text-align: center;
-    border-radius: 0.5rem;
-    font-size: 24px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: oblique;
-    color: orange;
-    border: orange;
-    box-shadow: #ff8b1f;
-  }
-  
-  div.card-title.h5 {
-    color: #fff;
-    font-size: 20px;
-    font-family: "ubuntu";
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: "Josefin Sans", sans-serif;
-    background: linear-gradient(to right, #ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 1.5s linear infinite;
-    display: inline-block;
-  }
-  
-  .saved {
-    padding-top: 20px;
-  }
-  
-  h2.card.text-center.py-2.mb-0 {
-    border-width: 1rem;
-    color: orange;
-  }
-  
-  .card-tonight {
-    background: #fff;
-    border: 1rem solid #dadee4;
-    border-radius: 0.1rem;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  
-  .card {
-    background: inherit;
-    border: none;
-  }
-  
-  div.col-10 {
-    background-color: white;
-    border-radius: 0.5rem;
-  }
-  
-  img {
-    border-radius: 0.9rem;
-    padding: 30px;
-  }
-  
-  .form-icon:hover {
-    background: orange;
-  }
-  
-  .form-icon::after {
-    color: yellow;
-  }
-  
-  a {
-    color: orange;
-    text-decoration: none;
-  }
-  
-  a.modal-overlay {
-  
-  }
-  
-  .col-10 {
-    background-image: url ("../images/lights,jpeg");
-  }
-  
-  #event-container {
-    visibility: visible;
-    transition: all 0.2s ease-in-out;
-    background-color: white;
-    box-shadow: orange;
-    border-radius: 1rem;
-  }
-  
-  #event-container:hover {
-    transform: scale(1.1);
-    border: 1rem;
-    box-shadow: 5px 5px 8px orange;
-  }
-  
-  img {
-    height: 350px;
-    width: 350px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .bg-title .btn {
-      display: table-header-group;
-    }
-  
-    .tonight-img {
-      flex: 0 32%;
-      margin-right: 0;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
-  }
-  
-  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
-  @media screen and (max-width: 575px) {
-    .bg-title .btn {
-      display: table-header-group;
-    }
-  }
-  
-  .inline-image {
-    display: inline-block;
-  }
-  
-  .inline-ul {
-    display: inline-block;
-    vertical-align: top;
-  }
+}
