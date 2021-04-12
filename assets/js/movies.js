@@ -18,7 +18,7 @@ function showMovies(url){
         var eventData = createMovieObject(element);
         saveMovie(eventData);
         let output = `
-             <div class="container border-black bg-gray" id="event-container">
+             <div class="container border-black bg-gray movie-container">
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
                 <div class="movie-info">
                     <p> Title: ${element.original_title}</p>
@@ -26,8 +26,6 @@ function showMovies(url){
                     <p> Rating: ${element.vote_average} <p>
                     <p> Description: ${element.overview}</p>
                     <label>
-                        <input type="checkbox" name="movie" data-id=${index} />
-                        Add Movie
                         <input class='movie-checkbox'type='checkbox'><i class='form-icon'></i> Save movie for later
                     <label>
                 </div>

@@ -350,7 +350,7 @@ function openSavedList(event) {
     }
   } 
   else{
-    savedRecipeEl.html("No Saved Movies");
+    savedMovieEl.html("No Saved Movies");
   }
 
   //Open the saved list modal
@@ -389,6 +389,7 @@ function displaySavedItem(eventRef)
 
 function displaySavedRecipe(recipeRef) 
 {
+  console.log("is this being called?");
   var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
   var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
   var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
@@ -544,7 +545,6 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 $(savedListEl).on("click", ".remove-btn", removeSavedItem);
 $(savedRecipeEl).on("click", ".remove-btn", removeSavedRecipe);
 $(savedMovieEl).on("click", ".remove-btn", removeSavedMovie);
-
 
 
 
