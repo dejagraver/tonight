@@ -148,6 +148,10 @@ a {
   border-bottom: none;
 }
 
+label.form-checkbox {
+padding-left: 40px;
+}
+
 #event-container {
   transition: all 0.2s ease-in-out;
   background-color: white;
@@ -201,4 +205,12 @@ img {
 .inline-ul {
   display: inline-block;
   vertical-align: top;
+}
+
+@media screen and (max-width: 1400px) {
+
+  .h1 .h2 {
+    font-size: 2em;
+  }  
+  
 }
