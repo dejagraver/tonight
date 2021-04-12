@@ -179,9 +179,12 @@ function createRecipeObject() {
   return recipeData;
 }
 
-function createMovieObject() {
+function createMovieObject(movieData) {
+
   var movieData = {
-    //enter movies values here
+    name: movieData.title,
+    release: movieData.release_date,
+    rating: movieData.vote_average
   };
 
   return movieData;
@@ -198,7 +201,7 @@ function saveRecipe(recipeData)
   savedRecipes.push(recipeData);
 }
 
-function saveRecipe(movieData) 
+function saveMovie(movieData) 
 {
   savedMovies.push(movieData);
 }
@@ -275,7 +278,7 @@ function toggleMovieSave(event)
 {
   console.log("movie clicked");
   //Initialize the index of the event that was clicked
-  var movieIndex = $(this).closest("#movie-container").index();
+  var movieIndex = $(this).closest(".movie-container").index();
 
   //If the box is checked, then save the event otherwise remove event from saved list
   if (event.target.checked) {
@@ -318,6 +321,7 @@ function closeModal(event) {
 function openSavedList(event) {
   savedListEl.html("");
   savedRecipeEl.html("");
+  savedMovieEl.html("");
 
   if (savedList.events.length > 0) {
     for (var i = 0; i < savedList.events.length; i++) {
@@ -342,12 +346,11 @@ function openSavedList(event) {
   if (savedList.movies.length > 0){
     for (var i = 0; i < savedList.movies.length; i++) {
       var movieRef = savedList.movies[i];
-      //displaySavedItem(movieRef);
+      displaySavedMovie(movieRef);
     }
   } 
-  
-  if (savedList.events.length === 0) {
-    savedListEl.html("No Saved Events");
+  else{
+    savedMovieEl.html("No Saved Movies");
   }
 
   //Open the saved list modal
@@ -386,6 +389,7 @@ function displaySavedItem(eventRef)
 
 function displaySavedRecipe(recipeRef) 
 {
+  console.log("is this being called?");
   var eventBoxEl = $("<div>").addClass("border-black bg-secondary p-2 saved-item-box");
   var columnBoxEl = $("<div>").addClass("columns").appendTo(eventBoxEl);
   var bodyBoxEl = $("<div>").addClass("col-auto").appendTo(columnBoxEl);
@@ -422,24 +426,17 @@ function displaySavedMovie(movieRef)
     .addClass("col-auto col-ml-auto")
     .appendTo(columnBoxEl);
 
-  // $("<p>")
-  //   .addClass("m-0 p-2")
-  //   .text(eventRef.name + " on " + eventRef.date + " @ " + eventRef.time)
-  //   .appendTo(bodyBoxEl);
+  $("<p>")
+    .addClass("m-0 p-2")
+    .text(movieRef.name + " - " + movieRef.release + " - " + movieRef.rating)
+    .appendTo(bodyBoxEl);
 
-  // var webpageLinkEl = $("<a>")
-  //   .attr({ href: eventRef.url, target: "_blank" })
-  //   .appendTo(buttonBoxEl);
-  // $("<button>")
-  //   .addClass("btn btn-primary mx-2")
-  //   .text("Webpage")
-  //   .appendTo(webpageLinkEl);
-  // $("<button>")
-  //   .addClass("btn mx-2 remove-btn")
-  //   .text("Remove")
-  //   .appendTo(buttonBoxEl);
+  $("<button>")
+    .addClass("btn mx-2 remove-btn")
+    .text("Remove")
+    .appendTo(buttonBoxEl);
 
-  eventBoxEl.appendTo(savedListEl);
+  eventBoxEl.appendTo(savedMovieEl);
 }
 
 function removeSavedItem(event) {
@@ -489,6 +486,30 @@ function removeSavedRecipe(event) {
   saveListToStorage();
 }
 
+function removeSavedMovie(event) {
+  //Get the index of the event that was clicked to remove
+  var itemIndex = $(this).closest(".saved-item-box").index();
+
+  //Remove the item from saved list
+  savedList.movies.splice(itemIndex, 1);
+
+  if (savedList.movies.length === 0) {
+    savedMovieEl.html("No Saved Movies");
+    
+  } 
+  else {
+    savedMovieEl.html("");
+
+    for (var i = 0; i < savedList.movies.length; i++) {
+      var eventRef = savedList.movies[i];
+      displaySavedMovie(eventRef);
+    }
+  }
+
+  //Save the list to storage after it has been removed
+  saveListToStorage();
+}
+
 //Save the global list to local storage
 function saveListToStorage() {
   localStorage.setItem("savedList", JSON.stringify(savedList));
@@ -523,8 +544,7 @@ $(".modal-close, #close-modal-btn").on("click", closeModal);
 
 $(savedListEl).on("click", ".remove-btn", removeSavedItem);
 $(savedRecipeEl).on("click", ".remove-btn", removeSavedRecipe);
-//$(savedMovieEl).on("click", ".remove-btn", removeSavedMovie);
-
+$(savedMovieEl).on("click", ".remove-btn", removeSavedMovie);
 
 
 
@@ -534,4 +554,4 @@ $(savedRecipeEl).on("click", ".remove-btn", removeSavedRecipe);
 //Call get location at the start of the program so that we can use the user's geographic location
 
 //getLocation();
-loadListFromStorage();
+//loadListFromStorage();

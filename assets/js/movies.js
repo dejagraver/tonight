@@ -28,28 +28,30 @@ function showMovies(url) {
                     <p> Rating: ${element.vote_average} <p>
                     <p> Description: ${element.overview}</p>
                     <label>
-                        <input type="checkbox" />
-                        Add Movie
+                        <input class='movie-checkbox'type='checkbox'><i class='form-icon'></i> Save movie for later
                     <label>
                 </div>
             </div>
         `;
         search.innerHTML += output;
       });
+      console.log(savedMovies);
     });
 }
 
 movieBtn.addEventListener("click", () => showMovies(apiUrl));
 
-// const savedListBtn = document.querySelector("#show-saved-list")
-// const searchList = document.getElementById("search");
-// const data = JSON.parse(localStorage.getItem("savedList"))
-// const events = data.events
+const savedListBtn = document.querySelector("#show-saved-list");
+const searchList = document.getElementById("search");
+//const data = JSON.parse(localStorage.getItem("savedList"))
+//const events = data.events
+//const movies = data.movies
 
 // const filtered = events.filter(i => i !== null) //filter items in the array that are null
 
 // savedListBtn.addEventListener("click", () => {
-//    filtered.forEach(event => {
+//     search.innerHTML = ""
+//     filtered.forEach(event => {
 //     let output = `
 //         <div>
 //             <div class="movie-info">
@@ -62,4 +64,15 @@ movieBtn.addEventListener("click", () => showMovies(apiUrl));
 //     `;
 //     search.innerHTML += output
 //    })
+
+//    movies.forEach(movie => {
+//        let output = `
+//        <p> Title: ${movie.title}</p>
+//        <p> Release date: ${movie.release_date}</p>
+//        <p> Rating: ${movie.rating} <p>
+//        <p> Description: ${movie.description}</p>
+//        `;
+//        search.innerHTML += output
+//    })
+
 // })
