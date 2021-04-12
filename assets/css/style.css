@@ -40,11 +40,11 @@ h2 {
 }
 
 .bg-title {
- color: orange;
- font-style:italic;
- opacity: 0.6;
- padding-top: 20px;
- font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+  color: orange;
+  font-style: italic;
+  opacity: 0.6;
+  padding-top: 20px;
+  font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 .btn {
@@ -153,6 +153,24 @@ a {
   box-shadow: 5px 5px 8px orange;
 }
 
+.recipe-container {
+  border-bottom: 1px solid orange;
+  border-radius: 1rem;
+  margin-bottom: 30px;
+}
+
+.recipe-container label {
+  display: inline-block;
+}
+
+.recipe-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 5px 8px orange;
+  background-color: white;
+  transition: 0.2s;
+}
+
 img {
   height: 350px;
   width: 350px;
@@ -172,7 +190,7 @@ img {
 }
 
 .modal.modal-lg {
-  background-image: url('../images/toronto.jpg');
+  background-image: url("../images/toronto.jpg");
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
