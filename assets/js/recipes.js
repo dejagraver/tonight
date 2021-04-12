@@ -62,10 +62,7 @@ function displayRecipe(data) {
     .addClass("form-checkbox")
     .html("<input class='recipe-checkbox' type='checkbox'><i class='form-icon'></i> Add Recipe")
     .appendTo(recipeContainer);
-  $("<label>")
-    .addClass("linebreak")
-    .html("<hr style=width: 100%>")
-    .appendTo(recipeContainer);
+
 
   var getIngredients = Object.keys(Recipe)
     .filter(function (ingredient) {
