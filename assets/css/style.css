@@ -126,10 +126,6 @@ img {
   background: orange;
 }
 
-.form-icon::after {
-  color: yellow;
-}
-
 a {
   color: orange;
   text-decoration: none;
@@ -139,8 +135,20 @@ a {
   background-image: url ("../images/lights,jpeg");
 }
 
+.recipe-container {
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: orange;
+  border-radius: 1rem;
+}
+.recipe-container:hover {
+  transform: scale(1.1);
+  border: 1rem;
+  box-shadow: 5px 5px 8px orange;
+  border-bottom: none;
+}
+
 #event-container {
-  visibility: visible;
   transition: all 0.2s ease-in-out;
   background-color: white;
   box-shadow: orange;
