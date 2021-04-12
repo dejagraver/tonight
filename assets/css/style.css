@@ -233,7 +233,9 @@ button#close-modal-btn.btn.btn-primary {
   background-color: orange;
 }
 
-
+#description{
+  width: 500px;
+}
 
 @media screen and (max-width: 768px) {
   .bg-title .btn {

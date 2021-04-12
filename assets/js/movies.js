@@ -18,15 +18,17 @@ function showMovies(url){
             saveMovie(eventData);
             var output = `
                 <div class="container border-black bg-gray movie-container">
-                    <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
-                    <div class="movie-info">
-                        <p> Title: ${element.original_title}</p>
-                        <p> Release date: ${element.release_date}</p>
-                        <p> Rating: ${element.vote_average} <p>
-                        <p> Description: ${element.overview}</p>
-                        <label>
-                            <input class='movie-checkbox'type='checkbox'><i class='form-icon'></i> Save movie for later
-                        <label>
+                    <div class="movie-info columns">
+                        <div class='col-auto'><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
+                        <div class='col-auto p-2'>
+                            <div class="card-title h5">${element.original_title}</div>
+                            <p> Release date: ${element.release_date}</p>
+                            <p> Rating: ${element.vote_average} <p>
+                            <p id='description'> Description: ${element.overview}</p>
+                            <label>
+                                <input class='movie-checkbox'type='checkbox'><i class='form-icon'></i> Save movie for later
+                            <label>
+                        <div>
                     </div>
                 </div>`;
             var movieBox = $("<div>").html(output);
