@@ -14,11 +14,14 @@ function showMovies(url) {
   fetch(url)
     .then((res) => res.json())
     .then(function (data) {
-      data.results.forEach((element) => {
-        console.log(data);
-
+      search.innerHTML = "";
+      console.log(data);
+      savedMovies = [];
+      data.results.forEach((element, index) => {
+        var eventData = createMovieObject(element);
+        saveMovie(eventData);
         let output = `
-            <div>
+             <div class="container border-black bg-gray movie-container">
                 <div><img src=${
                   IMGPATH + element.backdrop_path
                 } alt="img" /></div>
