@@ -4,7 +4,7 @@ const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
-const search = document.getElementById("event-list-group");
+const search = document.getElementById("search");
 const movieBtn = document.getElementById("movie")
 
 // showMovies(apiUrl);
