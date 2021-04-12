@@ -162,23 +162,23 @@ $("#recipe").on("click", function () {
   getRecipeData();
 });
 
-// var savedRecipe = ["Test", "Test 2"];
+var savedRecipe = ["Test", "Test 2"];
 
-// function saveRecipeToStorage() {
-//   localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
-//   console.log("saved");
-// }
-// function loadRecipeFromStorage() {
-//   var recipeList = JSON.parse(localStorage.getItem("savedRecipe"));
+function saveRecipeToStorage() {
+  localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
+  console.log("saved");
+}
+function loadRecipeFromStorage() {
+  var recipeList = JSON.parse(localStorage.getItem("savedRecipe"));
 
-//   if (recipeList) {
-//     savedRecipe = recipeList;
-//   }
-// }
-// console.log(savedRecipe);
+  if (recipeList) {
+    savedRecipe = recipeList;
+  }
+}
+console.log(savedRecipe);
 
-// function createRecipeObject(data) {
-//   var recipeData = {};
+function createRecipeObject(data) {
+  var recipeData = {};
 
-//   return data;
-// }
+  return data;
+}
