@@ -18,7 +18,7 @@ function showMovies(url){
         var eventData = createMovieObject(element);
         saveMovie(eventData);
         let output = `
-            <div>
+            <div class="movie-container">
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
                 <div class="movie-info">
                     <p> Title: ${element.original_title}</p>
@@ -28,6 +28,7 @@ function showMovies(url){
                     <label>
                         <input type="checkbox" name="movie" data-id=${index} />
                         Add Movie
+                        <input class='movie-checkbox'type='checkbox'><i class='form-icon'></i> Save movie for later
                     <label>
                 </div>
             </div>
@@ -42,36 +43,36 @@ movieBtn.addEventListener('click', () => showMovies(apiUrl))
 
 const savedListBtn = document.querySelector("#show-saved-list")
 const searchList = document.getElementById("search");
-const data = JSON.parse(localStorage.getItem("savedList"))
-const events = data.events
-const movies = data.movies
+//const data = JSON.parse(localStorage.getItem("savedList"))
+//const events = data.events
+//const movies = data.movies
 
-const filtered = events.filter(i => i !== null) //filter items in the array that are null
+// const filtered = events.filter(i => i !== null) //filter items in the array that are null
 
-savedListBtn.addEventListener("click", () => {
-    search.innerHTML = ""
-    filtered.forEach(event => {
-    let output = `
-        <div>
-            <div class="movie-info">
-                <p> Title: ${event?.name}</p>
-                <p> Release date: ${event?.date}</p>
-                <p> Rating: ${event?.time} <p>
-                <p> Description: ${event?.url}</p>
-            </div>
-        </div>
-    `;
-    search.innerHTML += output
-   })
+// savedListBtn.addEventListener("click", () => {
+//     search.innerHTML = ""
+//     filtered.forEach(event => {
+//     let output = `
+//         <div>
+//             <div class="movie-info">
+//                 <p> Title: ${event?.name}</p>
+//                 <p> Release date: ${event?.date}</p>
+//                 <p> Rating: ${event?.time} <p>
+//                 <p> Description: ${event?.url}</p>
+//             </div>
+//         </div>
+//     `;
+//     search.innerHTML += output
+//    })
 
-   movies.forEach(movie => {
-       let output = `
-       <p> Title: ${movie.title}</p>
-       <p> Release date: ${movie.release_date}</p>
-       <p> Rating: ${movie.rating} <p>
-       <p> Description: ${movie.description}</p>
-       `;
-       search.innerHTML += output
-   })
+//    movies.forEach(movie => {
+//        let output = `
+//        <p> Title: ${movie.title}</p>
+//        <p> Release date: ${movie.release_date}</p>
+//        <p> Rating: ${movie.rating} <p>
+//        <p> Description: ${movie.description}</p>
+//        `;
+//        search.innerHTML += output
+//    })
 
-})
+// })
