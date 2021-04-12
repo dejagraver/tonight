@@ -188,10 +188,6 @@ img {
   width: 350px;
 }
 
-/* a.modal-overlay {
-
-}
-
 div.modal-body { 
   color: #333; 
   font-family: 'Muli', sans-serif; 
@@ -230,9 +226,6 @@ p.m-0.p-2 {
   font-size: 2.2vh;
 }
 
-div.border-black.bg-secondary.p-2.saved-item-box {
-  border-radius: 0.75rem;
-}
 
 button.btn.btn-primary.mx-2 {
   background-color: orange;
@@ -242,47 +235,6 @@ button#close-modal-btn.btn.btn-primary {
   background-color: orange;
 }
 
-div#saved-list-movies.content {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  font-style: italic;
-  font-family: "Josefin Sans", sans-serif;
-  background: linear-gradient(to right, #ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 1.5s linear infinite;
-  display: inline-block;
-}
-
-div#saved-list-recipes.content {
-  color: #fff;
-  padding-left: 250px;
-  font-size: 20px;
-  font-family: "ubuntu";
-  font-weight: 700;
-  font-style: italic;
-  font-family: "Josefin Sans", sans-serif;
-  background: linear-gradient(to right, #ffeb7c 10%, #ffae00 50%, #ff7d13 60%);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 1.5s linear infinite;
-  display: inline-block;
-}
-
-div.recipe-container {
-  max-height: 250px;
-} */
 
 
 @media screen and (max-width: 768px) {
@@ -325,7 +277,7 @@ div.recipe-container {
 @media screen and (max-width: 1400px) {
 
   .h1 .h2 {
-    font-size: 2em;
+    font-size: none;
   }  
   
 }
