@@ -4,7 +4,7 @@ const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
-const search = document.getElementById("search");
+const search = document.getElementById("event-list-group");
 const movieBtn = document.getElementById("movie")
 
 // showMovies(apiUrl);
@@ -18,7 +18,7 @@ function showMovies(url){
         var eventData = createMovieObject(element);
         saveMovie(eventData);
         let output = `
-            <div class="movie-container">
+             <div class="container border-black bg-gray" id="event-container">
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
                 <div class="movie-info">
                     <p> Title: ${element.original_title}</p>
