@@ -11,9 +11,11 @@ const movieBtn = document.getElementById("movie")
 function showMovies(url){
     fetch(url).then(res => res.json())
     .then(function(data){
-    data.results.forEach(element => {
-        console.log(data)
-
+        search.innerHTML = ""
+    data.results.forEach((element, index) => {
+        var eventData = createMoviesObject(element)
+        saveEvent(eventData)
+        console.log(eventData)
         let output = `
             <div>
                 <div><img src=${IMGPATH + element.backdrop_path} alt="img" /></div>
@@ -23,7 +25,7 @@ function showMovies(url){
                     <p> Rating: ${element.vote_average} <p>
                     <p> Description: ${element.overview}</p>
                     <label>
-                        <input type="checkbox" />
+                        <input type="checkbox" name="movie" data-id=${index} />
                         Add Movie
                     <label>
                 </div>
@@ -34,27 +36,40 @@ function showMovies(url){
 });
 }
 
-// movieBtn.addEventListener('click', () => showMovies(apiUrl))
+movieBtn.addEventListener('click', () => showMovies(apiUrl))
 
-// const savedListBtn = document.querySelector("#show-saved-list")
-// const searchList = document.getElementById("search");
-// const data = JSON.parse(localStorage.getItem("savedList"))
-// const events = data.events
+const savedListBtn = document.querySelector("#show-saved-list")
+const searchList = document.getElementById("search");
+const data = JSON.parse(localStorage.getItem("savedList"))
+const events = data.events
+const movies = data.movies
 
-// const filtered = events.filter(i => i !== null) //filter items in the array that are null
+const filtered = events.filter(i => i !== null) //filter items in the array that are null
 
-// savedListBtn.addEventListener("click", () => {
-//    filtered.forEach(event => {
-//     let output = `
-//         <div>
-//             <div class="movie-info">
-//                 <p> Title: ${event?.name}</p>
-//                 <p> Release date: ${event?.date}</p>
-//                 <p> Rating: ${event?.time} <p>
-//                 <p> Description: ${event?.url}</p>
-//             </div>
-//         </div>
-//     `;
-//     search.innerHTML += output
-//    })
-// })
+savedListBtn.addEventListener("click", () => {
+    search.innerHTML = ""
+    filtered.forEach(event => {
+    let output = `
+        <div>
+            <div class="movie-info">
+                <p> Title: ${event?.name}</p>
+                <p> Release date: ${event?.date}</p>
+                <p> Rating: ${event?.time} <p>
+                <p> Description: ${event?.url}</p>
+            </div>
+        </div>
+    `;
+    search.innerHTML += output
+   })
+
+   movies.forEach(movie => {
+       let output = `
+       <p> Title: ${movie.title}</p>
+       <p> Release date: ${movie.release_date}</p>
+       <p> Rating: ${movie.rating} <p>
+       <p> Description: ${movie.description}</p>
+       `;
+       search.innerHTML += output
+   })
+
+})
