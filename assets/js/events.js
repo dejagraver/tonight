@@ -532,6 +532,6 @@ $(savedRecipeEl).on("click", ".remove-btn", removeSavedRecipe);
 /***** Program Start *****/
 
 //Call get location at the start of the program so that we can use the user's geographic location
-//getLocation();
 
-//loadListFromStorage();
+//getLocation();
+loadListFromStorage();
